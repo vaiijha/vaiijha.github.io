@@ -3,11 +3,14 @@ main:
   - title: "Projects"
     url: /publications/
 
-  - title: "CV/Resume"
+  - title: "Resume"
     url: /cv/
 
   - title: "Guide"
-    url: /markdown/      
+    url: /markdown/
+
+  - title: "bruh_test"
+    url: /bruh/      
 
   
   # - title: "Teaching"

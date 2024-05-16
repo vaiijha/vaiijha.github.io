@@ -1,18 +1,12 @@
 # main links links
 main:
   - title: "Projects"
-    url: /publications/
+    url: /projects/
 
   - title: "Resume"
-    url: /cv/
+    url: /files/Resume_Vaibhav_Jha.pdf      
 
-  - title: "Guide"
-    url: /markdown/
-
-  - title: "bruh_test"
-    url: /bruh/      
-
-  
+  #TODO: Add social work and brainstorm for future ideas
   # - title: "Teaching"
   #   url: /teaching/    
     

@@ -13,4 +13,4 @@ redirect_from:
 
 🔬 My research interests are at the intersection AI and Robotics. I also love to work on AI/Tech for good social projects. I'm currently researching Reinforcement Learning (RL) algorithms and their implementations. 
 
-📩 You can find more about my work at [Projects](https://vaiijha.github.io/projects/ "Projects Page") and [Resume](https://vaiijha.github.io/resume/ "Resume"). Feel free to shoot me a [mail](mailto:vaijha22@gmail.com).
+📩 You can find more about my work at [Projects](https://vaiijha.github.io/projects/ "Projects Page") and [Resume](/files/Vaibhav_Jha_Resume.pdf "Resume"). Feel free to shoot me a [mail](mailto:vaijha22@gmail.com).

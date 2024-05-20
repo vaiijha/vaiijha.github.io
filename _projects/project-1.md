@@ -4,11 +4,11 @@ excerpt: "Designed a solar panel cleaning robot to increase efficiency of solar 
 collection: projects
 ---
 
-##Results
+## Results
 
 We designed, fabricated and developed a Solar Panel Cleaning Robot, combining both dry and wet cleaning to **improve cleaning efficiency and reduce operational costs**. Our team achieved a **16.7% lift in efficiency** after dry cleaning and used only **25% of water utilized in wet cleaning as compared to industry practise**.
 
-##Design
+## Design
 
 This robot was also designed to address issues such as human resource unavailiabilty and harm due to harsh temperatures at solar farms. The design of the robot includes automated charging dock from where the robot can be deployed to clean panels at regular intervals.
 

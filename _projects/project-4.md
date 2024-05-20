@@ -1,7 +1,11 @@
 ---
 title: "Design of Thermoelectric System"
-excerpt: "Designed and implemented a thermo-electric system to generate electricity from hot water<br/><img src='/images/500x300.png'>"
+excerpt: "Designed and implemented a thermo-electric system to generate electricity from hot water<br/><img src='/images/themoelectric_concept.jpeg' width = "500" height = "300">"
 collection: projects
 ---
 
-This is an item in your portfolio. It can be have images or nice text. If you name the file .md, it will be parsed as markdown. If you name the file .html, it will be parsed as HTML. 
+Developed a small thermo-electric generator, which generated 5V of electricity due to temprature difference for hot water and icy-cold water. 
+
+Was a fun mini-project to understand Electricity and Semi-Conductors.
+
+![Thermoelectric chips](/images/themoelectric_chip.jpg "Thermoelectric chips")

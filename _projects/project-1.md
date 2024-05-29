@@ -1,6 +1,6 @@
 ---
 title: "Automated Solar Panel Cleaning Robot"
-excerpt: "Designed a solar panel cleaning robot to increase efficiency of solar panel and reduce operational costs. Funded by Hon' Govt. of Karnataka <br/><img src='/images/robot_and_me.jpeg' width = "500" height = "300">"
+excerpt: "Designed a solar panel cleaning robot to increase efficiency of solar panel and reduce operational costs. Funded by Hon' Govt. of Karnataka <br/><img src='/images/robot_and_me.jpeg'>"
 collection: projects
 ---
 

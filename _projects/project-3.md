@@ -1,6 +1,6 @@
 ---
 title: "Solar Irradiance Prediction"
-excerpt: "Predicting solar irradiance by analysing time series data using ML/DL and conducting a comparative study <br/><img src='/images/solar_irradiance.png' width = "500" height = "300">"
+excerpt: "Predicting solar irradiance by analysing time series data using ML/DL and conducting a comparative study <br/><img src='/images/solar_irradiance.png'>"
 collection: projects
 ---
 

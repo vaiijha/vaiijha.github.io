@@ -1,6 +1,6 @@
 ---
 title: "Design of Thermoelectric System"
-excerpt: "Designed and implemented a thermo-electric system to generate electricity from hot water<br/><img src='/images/themoelectric_concept.jpeg' width = "500" height = "300">"
+excerpt: "Designed and implemented a thermo-electric system to generate electricity from hot water<br/><img src='/images/themoelectric_concept.jpeg'>"
 collection: projects
 ---
 

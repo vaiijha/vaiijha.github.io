@@ -1,6 +1,6 @@
 ---
 title: "Automated Solar Panel Cleaning Robot"
-excerpt: "Designed a solar panel cleaning robot to increase efficiency of solar panel and reduce operational costs. Funded by Hon' Govt. of Karnataka <br/><img src='/images/robot_and_me.jpeg'>"
+excerpt: "Designed a solar panel cleaning robot to increase efficiency of solar panel and reduce operational costs. Funded by Hon' Govt. of Karnataka <br/><img src='/images/my-image-with-robot-500x500.jpeg'>"
 collection: projects
 ---
 
@@ -16,7 +16,7 @@ It has specially designed chassis and wheels which helps to manoeuvre any pertur
 
 This is my final year undergrad project (capstone) under the guidance of Prof. Sushmita Sarkar.
 
-![Robot and Me](/images/robot_and_me.jpeg "Solar Panel Cleaning Robot")
+![Robot and Me](/images/my-image-with-robot-500x500.jpeg "Solar Panel Cleaning Robot")
 
 ![Robot on panel](/images/robot_on_panel.jpeg "Solar Panel Cleaning Robot on panel")
 

@@ -1,54 +1,144 @@
 
-
 @charset "utf-8";
 
-/*
- * 1. ABSTRACTS
- * Core variables, functions, and mixins. Must be loaded first.
- */
-@import "variables";
+/* Import a modern, clean font (SF Pro, Inter, or system font stack) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
+/* 1. VARIABLES: Apple/OpenAI inspired palette */
+$background: #fafbfc;
+$text: #222;
+$muted-text: #666;
+$primary: #10a37f; // OpenAI green
+$border: #e5e7eb;
+$radius: 12px;
+$shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
 
-/*
- * 2. VENDOR
- * Third-party styles (e.g., breakpoint, font-awesome).
- */
-@import "vendor/breakpoint/breakpoint";
+/* 2. BASE STYLES */
+html, body {
+  background: $background;
+  color: $text;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
 
+a {
+  color: $primary;
+  text-decoration: none;
+  transition: color 0.2s;
+  &:hover, &:focus {
+    color: darken($primary, 10%);
+    text-decoration: underline;
+  }
+}
 
-/*
- * 3. BASE
- * Foundational styles for the entire site.
- */
-@import "reset";
-@import "base";
-@import "animations";
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: $text;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
 
+p {
+  margin: 1.2em 0;
+  color: $text;
+}
 
-/*
- * 4. LAYOUT
- * Major structural components.
- */
-@import "masthead";
-@import "sidebar";
-@import "footer";
-@import "page";
-@import "archive";
+hr {
+  border: none;
+  border-top: 1px solid $border;
+  margin: 2em 0;
+}
 
+code, pre {
+  font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace;
+  background: #f4f4f4;
+  color: #333;
+  border-radius: 6px;
+  padding: 0.2em 0.4em;
+}
 
-/*
- * 5. COMPONENTS
- * Reusable UI elements.
- */
-@import "buttons";
-@import "notices";
-@import "tables";
-@import "forms";
+pre {
+  padding: 1em;
+  overflow-x: auto;
+}
 
+img {
+  max-width: 100%;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  display: block;
+  margin: 2em auto;
+}
 
-/*
- * 6. UTILITIES & SYNTAX
- * Helper classes and code highlighting.
- */
-@import "utilities";
-@import "syntax";
+button, .btn {
+  background: $primary;
+  color: #fff;
+  border: none;
+  border-radius: $radius;
+  padding: 0.7em 1.5em;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: $shadow;
+  transition: background 0.2s;
+  &:hover, &:focus {
+    background: darken($primary, 8%);
+  }
+}
+
+input, textarea, select {
+  border: 1px solid $border;
+  border-radius: $radius;
+  padding: 0.6em 1em;
+  font-size: 1em;
+  background: #fff;
+  color: $text;
+  margin-bottom: 1em;
+  transition: border 0.2s;
+  &:focus {
+    border-color: $primary;
+    outline: none;
+  }
+}
+
+/* 3. LAYOUT HELPERS */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2em 1em;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid $border;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  padding: 2em;
+  margin: 2em 0;
+}
+
+/* 4. UTILITIES */
+.text-muted {
+  color: $muted-text;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* 5. OVERRIDES FOR JEKYLL COMPONENTS (OPTIONAL) */
+/* You may want to override sidebar, footer, etc. here if you use them */
+
+/* 6. RESPONSIVE */
+@media (max-width: 600px) {
+  html, body {
+    font-size: 16px;
+  }
+  .container {
+    padding: 1em 0.5em;
+  }
+}

@@ -1,315 +1,344 @@
 /* ==========================================================================
    BASE ELEMENTS
    ========================================================================== */
-html {
-  /* sticky footer fix */
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin: 0;
-  padding: $masthead-height 0 0;
-  padding-bottom: 9em;
-  color: $text-color;
-  font-family: $global-font-family;
-  line-height: 1.5;
-
-  &.overflow--hidden {
-    /* when primary navigation is visible, the content in the background won't scroll */
-    overflow: hidden;
+   html {
+    /* sticky footer fix */
+    position: relative;
+    min-height: 100%;
+    /* ENHANCED: Added smooth scrolling for better user experience */
+    scroll-behavior: smooth;
   }
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 2em 0 0.5em;
-  line-height: 1.2;
-  font-family: $header-font-family;
-  font-weight: bold;
-}
-
-h1 {
-  margin-top: 0;
-  font-size: $type-size-3;
-}
-
-h2 {
-  font-size: $type-size-4;
-}
-
-h3 {
-  font-size: $type-size-5;
-}
-
-h4 {
-  font-size: $type-size-6;
-}
-
-h5 {
-  font-size: $type-size-6;
-}
-
-h6 {
-  font-size: $type-size-6;
-}
-
-small, .small {
-  font-size: $type-size-6;
-}
-
-p {
-  margin-bottom: 1.3em;
-}
-
-u,
-ins {
-  text-decoration: none;
-  border-bottom: 1px solid $text-color;
-  a {
-    color: inherit;
-  }
-}
-
-del a {
-  color: inherit;
-}
-
-/* reduce orphans and widows when printing */
-
-p, pre, blockquote, ul, ol, dl, figure, table, fieldset {
-  orphans: 3;
-  widows: 3;
-}
-
-/* abbreviations */
-
-abbr[title],
-abbr[data-original-title] {
-  text-decoration: none;
-  cursor: help;
-  border-bottom: 1px dotted $text-color;
-}
-
-/* blockquotes */
-
-blockquote {
-  margin: 2em 1em 2em 0;
-  padding-left: 1em;
-  padding-right: 1em;
-  font-style: italic;
-  border-left: 0.25em solid $primary-color;
-
-  cite {
-    font-style: italic;
-
-    &:before {
-      content: "\2014";
-      padding-right: 5px;
-    }
-  }
-}
-
-/* links */
-
-a {
-  &:focus {
-    @extend %tab-focus;
-  }
-
-  &:hover,
-  &:active {
-    outline: 0;
-  }
-}
-
-/* code */
-
-tt, code, kbd, samp, pre {
-  font-family: $monospace;
-}
-
-pre {
-  overflow-x: auto; /* add scrollbars to wide code blocks*/
-}
-
-p > code,
-a > code,
-li > code,
-figcaption > code,
-td > code {
-  padding-top: 0.1rem;
-  padding-bottom: 0.1rem;
-  font-size: $type-size-6;
-  background: $code-background-color;
-  border: 1px solid $lighter-gray;
-  border-radius: $border-radius;
-  box-shadow: $box-shadow;
-
-  &:before, &:after {
-    letter-spacing: -0.2em;
-    content: "\00a0"; /* non-breaking space*/
-  }
-}
-
-/* horizontal rule */
-
-hr {
-  display: block;
-  margin: 1em 0;
-  border: 0;
-  border-top: 1px solid $border-color;
-}
-
-/* lists */
-
-ul li,
-ol li {
-  margin-bottom: 0.5em;
-}
-
-li ul,
-li ol {
-  margin-top: 0.5em;
-}
-
-/*
-   Media and embeds
-   ========================================================================== */
-
-/* Figures and images */
-
-figure {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-          align-items: flex-start;
-  flex-wrap: wrap;
-  margin: 2em 0;
-
-  img,
-  iframe,
-  .fluid-width-video-wrapper {
-    margin-bottom: 1em;
-  }
-
-  img {
-    width: 100%;
-    border-radius: $border-radius;
-    -webkit-transition: $global-transition;
-    transition: $global-transition;
-  }
-
-  > a {
-    display: block;
-  }
-
-  &.half {
-    > a,
-    > img {
-      @include breakpoint($small) {
-        width: calc(50% - 0.5em);
-      }
-    }
-
-    figcaption {
-      width: 100%;
-    }
-  }
-
-  &.third {
-    > a,
-    > img {
-      @include breakpoint($small) {
-        width: calc(33.3333% - 0.5em);
-      }
-    }
-
-    figcaption {
-      width: 100%;
-    }
-  }
-}
-
-/* Figure captions */
-
-figcaption {
-  margin-bottom: 0.5em;
-  color: mix(#fff, $text-color, 25%);
-  font-family: $caption-font-family;
-  font-size: $type-size-6;
-
-  a {
-    color: inherit;
-    text-decoration: none;
-    border-bottom: 1px solid $light-gray;
-    -webkit-transition: $global-transition;
-    transition: $global-transition;
-
-    &:hover {
-      color: #000;
-      border-bottom-color: #000;
-    }
-  }
-}
-
-
-/* Fix IE9 SVG bug */
-
-svg:not(:root) {
-  overflow: hidden;
-}
-
-
-/*
-   Navigation lists
-   ========================================================================== */
-
-/**
- * Removes margins, padding, and bullet points from navigation lists
- *
- * Example usage:
- * <nav>
- *    <ul>
- *      <li><a href="#link-1">Link 1</a></li>
- *      <li><a href="#link-2">Link 2</a></li>
- *      <li><a href="#link-3">Link 3</a></li>
- *    </ul>
- *  </nav>
- */
-
-nav {
-  ul {
+  
+  /* ENHANCED: Updated body styling with improved typography and responsive sizing */
+  body {
     margin: 0;
-    padding: 0;
+    padding: $masthead-height 0 0;
+    padding-bottom: 9em;
+    color: $text-color;
+    font-family: $global-font-family;
+    line-height: 1.6; /* ENHANCED: Improved readability from 1.5 to 1.6 */
+    font-size: 16px; /* ENHANCED: Explicit base font size */
+  
+    /* ENHANCED: Responsive font sizing for better readability on larger screens */
+    @include breakpoint($medium) {
+      font-size: 18px;
+    }
+  
+    &.overflow--hidden {
+      /* when primary navigation is visible, the content in the background won't scroll */
+      overflow: hidden;
+    }
   }
-
-  li {
-    list-style: none;
+  
+  /* ENHANCED: Improved heading hierarchy with better spacing and consistent styling */
+  h1, h2, h3, h4, h5, h6 {
+    margin: $spacing-large 0 $spacing-small; /* ENHANCED: Using consistent spacing variables instead of 2em 0 0.5em */
+    line-height: 1.2;
+    font-family: $header-font-family;
+    font-weight: 600; /* ENHANCED: Slightly lighter than bold (was bold) for better readability */
+    color: $primary-color; /* ENHANCED: Consistent color for all headings */
   }
-
-  a {
+  
+  /* ENHANCED: Updated heading sizes to use improved type scale */
+  h1 {
+    margin-top: 0;
+    font-size: $type-size-1; /* ENHANCED: Using larger size (was $type-size-3) */
+  }
+  
+  h2 {
+    font-size: $type-size-2; /* ENHANCED: Using larger size (was $type-size-4) */
+    /* ENHANCED: Added subtle underline for better visual hierarchy */
+    border-bottom: 2px solid lighten($primary-color, 40%);
+    padding-bottom: 0.5rem;
+  }
+  
+  h3 {
+    font-size: $type-size-3; /* ENHANCED: Using larger size (was $type-size-5) */
+  }
+  
+  h4 {
+    font-size: $type-size-4; /* ENHANCED: Using larger size (was $type-size-6) */
+  }
+  
+  h5 {
+    font-size: $type-size-5; /* ENHANCED: Using larger size (was $type-size-6) */
+  }
+  
+  h6 {
+    font-size: $type-size-6;
+  }
+  
+  small, .small {
+    font-size: $type-size-6;
+  }
+  
+  /* ENHANCED: Better paragraph styling with improved spacing */
+  p {
+    margin-bottom: $spacing-medium; /* ENHANCED: Using consistent spacing variable instead of 1.3em */
+    font-size: $type-size-5; /* ENHANCED: Explicit font size for consistency */
+    
+    /* ENHANCED: Remove margin from last paragraph in containers */
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  u,
+  ins {
     text-decoration: none;
+    border-bottom: 1px solid $text-color;
+    a {
+      color: inherit;
+    }
   }
-
-  /* override white-space for nested lists */
+  
+  del a {
+    color: inherit;
+  }
+  
+  /* reduce orphans and widows when printing */
+  p, pre, blockquote, ul, ol, dl, figure, table, fieldset {
+    orphans: 3;
+    widows: 3;
+  }
+  
+  /* abbreviations */
+  abbr[title],
+  abbr[data-original-title] {
+    text-decoration: none;
+    cursor: help;
+    border-bottom: 1px dotted $text-color;
+  }
+  
+  /* ENHANCED: Improved blockquote styling with better visual appeal */
+  blockquote {
+    margin: $spacing-large 0; /* ENHANCED: Using consistent spacing variables */
+    padding: $spacing-medium; /* ENHANCED: More generous padding */
+    background: lighten($primary-color, 45%); /* ENHANCED: Subtle background color */
+    border-left: 4px solid $primary-color; /* ENHANCED: Thicker border for better emphasis */
+    border-radius: 4px; /* ENHANCED: Subtle rounded corners */
+    font-style: italic;
+  
+    /* ENHANCED: Remove margin from last paragraph in blockquotes */
+    p:last-child {
+      margin-bottom: 0;
+    }
+  
+    cite {
+      font-style: italic;
+  
+      &:before {
+        content: "\2014";
+        padding-right: 5px;
+      }
+    }
+  }
+  
+  /* ENHANCED: Improved link styling with better focus states */
+  a {
+    &:focus {
+      @extend %tab-focus;
+      /* ENHANCED: Better focus outline for accessibility */
+      outline: 2px solid $primary-color;
+      outline-offset: 2px;
+    }
+  
+    &:hover,
+    &:active {
+      outline: 0;
+    }
+  }
+  
+  /* code */
+  tt, code, kbd, samp, pre {
+    font-family: $monospace;
+  }
+  
+  pre {
+    overflow-x: auto; /* add scrollbars to wide code blocks*/
+  }
+  
+  p > code,
+  a > code,
+  li > code,
+  figcaption > code,
+  td > code {
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    font-size: $type-size-6;
+    background: $code-background-color;
+    border: 1px solid $lighter-gray;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+  
+    &:before, &:after {
+      letter-spacing: -0.2em;
+      content: "\00a0"; /* non-breaking space*/
+    }
+  }
+  
+  /* horizontal rule */
+  hr {
+    display: block;
+    margin: 1em 0;
+    border: 0;
+    border-top: 1px solid $border-color;
+  }
+  
+  /* ENHANCED: Improved list styling with better spacing */
   ul li,
   ol li {
-    margin-bottom: 0;
+    margin-bottom: 0.5rem; /* ENHANCED: Using rem for consistency */
+    line-height: 1.6; /* ENHANCED: Better line height for readability */
+    
+    &:last-child {
+      margin-bottom: 0; /* ENHANCED: Remove margin from last list item */
+    }
   }
-
+  
   li ul,
   li ol {
-    margin-top: 0;
+    margin-top: 0.5em;
   }
-}
-
-/*
-   Global animation transition
-   ========================================================================== */
-
-b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a, tr, td, form button, input[type="submit"], .btn, .highlight, .archive__item-teaser {
-  -webkit-transition: $global-transition;
-  transition: $global-transition;
-}
+  
+  /*
+     Media and embeds
+     ========================================================================== */
+  
+  /* Figures and images */
+  figure {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+            align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 2em 0;
+  
+    img,
+    iframe,
+    .fluid-width-video-wrapper {
+      margin-bottom: 1em;
+    }
+  
+    img {
+      width: 100%;
+      border-radius: $border-radius;
+      -webkit-transition: $global-transition;
+      transition: $global-transition;
+      /* ENHANCED: Loading animation for images */
+      &:not([src]) {
+        opacity: 0;
+      }
+    }
+  
+    > a {
+      display: block;
+    }
+  
+    &.half {
+      > a,
+      > img {
+        @include breakpoint($small) {
+          width: calc(50% - 0.5em);
+        }
+      }
+  
+      figcaption {
+        width: 100%;
+      }
+    }
+  
+    &.third {
+      > a,
+      > img {
+        @include breakpoint($small) {
+          width: calc(33.3333% - 0.5em);
+        }
+      }
+  
+      figcaption {
+        width: 100%;
+      }
+    }
+  }
+  
+  /* Figure captions */
+  figcaption {
+    margin-bottom: 0.5em;
+    color: mix(#fff, $text-color, 25%);
+    font-family: $caption-font-family;
+    font-size: $type-size-6;
+  
+    a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid $light-gray;
+      -webkit-transition: $global-transition;
+      transition: $global-transition;
+  
+      &:hover {
+        color: #000;
+        border-bottom-color: #000;
+      }
+    }
+  }
+  
+  /* Fix IE9 SVG bug */
+  svg:not(:root) {
+    overflow: hidden;
+  }
+  
+  /*
+     Navigation lists
+     ========================================================================== */
+  
+  /**
+   * Removes margins, padding, and bullet points from navigation lists
+   *
+   * Example usage:
+   * <nav>
+   *    <ul>
+   *      <li><a href="#link-1">Link 1</a></li>
+   *      <li><a href="#link-2">Link 2</a></li>
+   *      <li><a href="#link-3">Link 3</a></li>
+   *    </ul>
+   *  </nav>
+   */
+  
+  nav {
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+  
+    li {
+      list-style: none;
+    }
+  
+    a {
+      text-decoration: none;
+    }
+  
+    /* override white-space for nested lists */
+    ul li,
+    ol li {
+      margin-bottom: 0;
+    }
+  
+    li ul,
+    li ol {
+      margin-top: 0;
+    }
+  }
+  
+  /*
+     Global animation transition
+     ========================================================================== */
+  
+  b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a, tr, td, form button, input[type="submit"], .btn, .highlight, .archive__item-teaser {
+    -webkit-transition: $global-transition;
+    transition: $global-transition;
+  }
+  

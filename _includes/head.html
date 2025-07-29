@@ -6,10 +6,14 @@
 
 <link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
 
+<!-- ENHANCED: Added Google Fonts for Inter and Playfair Display - CRITICAL FOR TYPOGRAPHY IMPROVEMENTS -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ENHANCED: Updated viewport meta tag for better mobile responsiveness and font rendering -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
 <script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';

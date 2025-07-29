@@ -6,24 +6,38 @@
    Default button
    ========================================================================== */
 
+/* ENHANCED: Updated default button with modern styling and better micro-interactions */
 .btn {
   /* default button */
   display: inline-block;
-  margin-bottom: 0.25em;
-  padding: 0.5em 1em;
+  margin: 0.25em 0.25em 0.25em 0; /* ENHANCED: Updated margin pattern for better spacing */
+  padding: 0.75em 1.5em; /* ENHANCED: More generous padding from 0.5em 1em for better touch targets */
   color: #fff !important;
-  font-family: $sans-serif;
+  font-family: $header-font-family; /* ENHANCED: Using header font family instead of $sans-serif for consistency */
   font-size: $type-size-6;
-  font-weight: bold;
+  font-weight: 600; /* ENHANCED: Slightly lighter weight from bold for better readability */
+  line-height: 1; /* ENHANCED: Added explicit line-height for consistency */
   text-align: center;
   text-decoration: none;
   background-color: $primary-color;
   border: 0 !important;
-  border-radius: $border-radius;
+  border-radius: 6px; /* ENHANCED: Slightly more rounded from $border-radius (4px) for modern appearance */
   cursor: pointer;
+  transition: all 0.3s ease; /* ENHANCED: Smooth transitions for all properties - NEW ADDITION */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* ENHANCED: Subtle shadow for depth - NEW ADDITION */
 
+  /* ENHANCED: Improved hover effects with transform and enhanced shadow */
   &:hover {
+    color: #fff !important; /* ENHANCED: Ensure white text on hover */
+    text-decoration: none; /* ENHANCED: Remove any text decoration on hover */
     background-color: mix(white, #000, 20%);
+    transform: translateY(-1px); /* ENHANCED: Subtle lift effect on hover - NEW ADDITION */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* ENHANCED: Enhanced shadow on hover - NEW ADDITION */
+  }
+
+  /* ENHANCED: Active state for better user feedback - NEW ADDITION */
+  &:active {
+    transform: translateY(0); /* ENHANCED: Return to original position when clicked */
   }
 
   .icon {
@@ -35,7 +49,6 @@
   }
 
   /* fills width of parent container */
-
   &--block {
     display: block;
     width: 100%;
@@ -46,7 +59,6 @@
   }
 
   /* for dark backgrounds */
-
   &--inverse {
     color: $gray !important;
     border: 1px solid $light-gray !important; /* override*/
@@ -59,14 +71,12 @@
   }
 
   /* light outline */
-
   &--light-outline {
     border: 1px solid #fff !important; /* override*/
     background-color: transparent;
   }
 
   /* information */
-
   &--info {
     background-color: $info-color;
 
@@ -76,7 +86,6 @@
   }
 
   /* warning */
-
   &--warning {
     background-color: $warning-color;
 
@@ -86,7 +95,6 @@
   }
 
   /* success */
-
   &--success {
     background-color: $success-color;
 
@@ -96,7 +104,6 @@
   }
 
   /* danger */
-
   &--danger {
     background-color: $danger-color;
 
@@ -106,7 +113,6 @@
   }
 
   /* disabled */
-
   &--disabled {
     pointer-events: none;
     cursor: not-allowed;
@@ -116,7 +122,6 @@
   }
 
   /* social buttons */
-
   $social:
   (facebook, $facebook-color),
   (twitter, $twitter-color),
@@ -134,20 +139,26 @@
   }
 
   /* extra large button */
-
   &--x-large {
     font-size: $type-size-4;
   }
 
   /* large button */
-
   &--large {
     font-size: $type-size-5;
   }
 
   /* small button */
-
   &--small {
     font-size: $type-size-7;
+  }
+}
+
+/* ENHANCED: Primary button variant with enhanced hover effects - NEW ADDITION */
+.btn--primary {
+  background-color: $primary-color; /* ENHANCED: Explicit primary color background */
+  
+  &:hover {
+    background-color: darken($primary-color, 10%); /* ENHANCED: Darker shade on hover instead of mix function */
   }
 }

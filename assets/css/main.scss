@@ -39,3 +39,34 @@
 @import "vendor/font-awesome/brands";
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";
+
+// Custom micro-interactions
+.archive__item-title a {
+    transition: color 0.3s ease;
+    
+    &:hover {
+      color: $primary-color;
+      text-decoration: none;
+    }
+  }
+  
+  // Smooth scrolling
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  // Enhanced focus states for accessibility
+  :focus {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+  }
+  
+  // Loading animation for images
+  img {
+    transition: opacity 0.3s ease;
+    
+    &:not([src]) {
+      opacity: 0;
+    }
+  }
+  

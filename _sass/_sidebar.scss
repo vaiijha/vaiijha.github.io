@@ -12,16 +12,18 @@
   
     @include clearfix();
     margin-bottom: 1em;
+    background: $background-color; /* ENHANCED: Explicit background */
   
     @media screen and (min-width: $sidebar-screen-min-width) {
       height: 100vh;
-      overflow-y: auto;               // Add scrollbar if the sidebar is too long
+      overflow-y: auto;
       position: fixed;
       padding-top: $masthead-height;
+      border-right: 1px solid $border-color; /* ENHANCED: Subtle border */
     }
   
     @include breakpoint($large) {
-      @include span(2 of 12);
+      @include span(3 of 12); /* ENHANCED: Slightly wider sidebar */
       opacity: 1;
       -webkit-transition: opacity 0.2s ease-in-out;
               transition: opacity 0.2s ease-in-out;
@@ -33,12 +35,13 @@
   
     @include breakpoint($x-large) {
       max-width: $sidebar-link-max-width;
-      padding-right: 0;
+      padding-right: $spacing-medium; /* ENHANCED: Better padding */
     }
   
     h2, h3, h4, h5, h6 {
       margin-bottom: 0;
-      font-family: $sans-serif-narrow;
+      font-family: $header-font-family; /* ENHANCED: Consistent font family */
+      color: $text-color; /* ENHANCED: Consistent color */
     }
   
     h3, h4 {
@@ -46,9 +49,10 @@
     }
   
     p, li {
-      font-family: $sans-serif;
+      font-family: $global-font-family; /* ENHANCED: Consistent font */
       font-size: $type-size-6;
-      line-height: 1.5;
+      line-height: 1.6; /* ENHANCED: Better line height */
+      color: $openai-medium-gray; /* ENHANCED: Subtle color for sidebar text */
     }
   
     img {
@@ -76,35 +80,36 @@
      Author profile and links
      ========================================================================== */
   
-  /* ENHANCED: Improved author avatar with larger size, colored border, and hover effects */
+  /* ENHANCED: Modern, clean author avatar inspired by OpenAI */
   .author__avatar {
     display: table-cell;
     vertical-align: top;
-    width: 48px; /* ENHANCED: Slightly larger from 36px for better visibility */
-    height: 48px; /* ENHANCED: Added explicit height for consistency */
-    // set width only, for non-square avatars
+    width: 56px; /* ENHANCED: Larger for better presence */
+    height: 56px;
   
     @include breakpoint($large) {
       display: block;
       width: auto;
       height: auto;
+      text-align: center; /* ENHANCED: Center alignment */
+      margin-bottom: $spacing-large; /* ENHANCED: Better spacing */
     }
   
     img {
-      max-width: 200px; /* ENHANCED: Larger profile image from 175px for better impact */
+      max-width: 160px; /* ENHANCED: Reasonable size */
       border-radius: 50%;
-      border: 3px solid $primary-color; /* ENHANCED: Colored border using primary color instead of border-color */
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* ENHANCED: Subtle shadow for depth - NEW ADDITION */
-      transition: transform 0.3s ease; /* ENHANCED: Smooth transform transition - NEW ADDITION */
+      border: 3px solid $background-color; /* ENHANCED: White border for clean look */
+      box-shadow: 0 4px 20px rgba(32, 33, 35, 0.15); /* ENHANCED: Subtle shadow with OpenAI colors */
+      transition: all 0.3s ease;
       
-      /* ENHANCED: Subtle hover effect for interactivity - NEW ADDITION */
       &:hover {
-        transform: scale(1.05); /* ENHANCED: Gentle scale effect on hover */
+        transform: scale(1.02); /* ENHANCED: Very subtle hover effect */
+        box-shadow: 0 6px 25px rgba(32, 33, 35, 0.2);
       }
   
       @include breakpoint($large) {
-        padding: 5px;
-        border: 1px solid $border-color; /* ENHANCED: Maintains existing large screen border styling */
+        padding: 0; /* ENHANCED: Remove padding for cleaner look */
+        border: 4px solid $background-color; /* ENHANCED: Thicker white border */
       }
     }
   }
@@ -112,34 +117,37 @@
   .author__content {
     display: table-cell;
     vertical-align: top;
-    padding-left: 15px;
-    padding-right: 25px;
-    line-height: 1;
+    padding-left: $spacing-medium; /* ENHANCED: Using spacing variable */
+    padding-right: $spacing-large;
+    line-height: 1.4; /* ENHANCED: Better line height */
   
     @include breakpoint($large) {
       display: block;
       width: 100%;
       padding-left: 0;
       padding-right: 0;
+      text-align: center; /* ENHANCED: Center text on large screens */
     }
   }
   
-  /* ENHANCED: Improved author name styling with better typography and spacing */
+  /* ENHANCED: Clean, prominent author name */
   .author__name {
     margin: 0;
-    font-size: $type-size-3; /* ENHANCED: Larger font size for better hierarchy - NEW ADDITION */
-    font-weight: 700; /* ENHANCED: Bolder font weight for emphasis - NEW ADDITION */
-    color: $primary-color; /* ENHANCED: Primary color for brand consistency - NEW ADDITION */
+    font-size: $type-size-2; /* ENHANCED: Larger, more prominent */
+    font-weight: 700; /* ENHANCED: Bold for emphasis */
+    color: $text-color; /* ENHANCED: Dark color for readability */
+    line-height: 1.2;
   
     @include breakpoint($large) {
-      margin-top: $spacing-medium; /* ENHANCED: Using consistent spacing variable instead of 10px */
-      margin-bottom: $spacing-small; /* ENHANCED: Using consistent spacing variable instead of 10px */
+      margin-top: $spacing-medium;
+      margin-bottom: $spacing-small;
     }
   }
   
   .sidebar .author__name {
-    font-family: $sans-serif;
-    font-size: $type-size-5;
+    font-family: $header-font-family; /* ENHANCED: Consistent font */
+    font-size: $type-size-3; /* ENHANCED: Larger sidebar name */
+    font-weight: 600;
   }
   
   .sidebar .author__desktop {
@@ -151,23 +159,27 @@
   
   .author__pronouns {
     margin: 0;
+    font-size: $type-size-6;
+    color: $openai-medium-gray; /* ENHANCED: Subtle color */
   
     @include breakpoint($large) {
-      margin-top: 10px;
-      margin-bottom: 10px;
+      margin-top: $spacing-small;
+      margin-bottom: $spacing-small;
     }
   }
   
-  /* ENHANCED: Improved author bio styling with better readability and spacing */
+  /* ENHANCED: Clean, readable author bio */
   .author__bio {
     margin: 0;
-    font-size: $type-size-6; /* ENHANCED: Explicit font size for consistency - NEW ADDITION */
-    line-height: 1.5; /* ENHANCED: Better line height for readability - NEW ADDITION */
-    color: darken($text-color, 10%); /* ENHANCED: Slightly darker color for better contrast - NEW ADDITION */
+    font-size: $type-size-5; /* ENHANCED: Slightly larger for better readability */
+    line-height: 1.6;
+    color: $openai-medium-gray; /* ENHANCED: Subtle gray color */
   
     @include breakpoint($large) {
-      margin-top: $spacing-small; /* ENHANCED: Using consistent spacing variable instead of 10px */
-      margin-bottom: $spacing-medium; /* ENHANCED: Using consistent spacing variable instead of 20px */
+      margin-top: $spacing-medium;
+      margin-bottom: $spacing-large;
+      text-align: left; /* ENHANCED: Left align bio text for better readability */
+      padding: 0 $spacing-medium; /* ENHANCED: Side padding for better text flow */
     }
   }
   
@@ -175,7 +187,7 @@
     position: relative;
     display: table-cell;
     vertical-align: middle;
-    font-family: $sans-serif;
+    font-family: $global-font-family; /* ENHANCED: Consistent font */
     z-index: 10;
     position: relative;
     cursor: pointer;
@@ -192,6 +204,16 @@
   
     button {
       margin-bottom: 0;
+      background: $primary-color; /* ENHANCED: Use primary color */
+      color: white;
+      border: none;
+      padding: $spacing-small $spacing-medium;
+      border-radius: $border-radius;
+      font-weight: 500;
+  
+      &:hover {
+        background: $openai-accent-hover;
+      }
   
       @include breakpoint($large) {
         display: none;
@@ -199,24 +221,25 @@
     }
   }
   
+  /* ENHANCED: Clean social links styling */
   .author__urls {
     display: none;
     position: absolute;
     right: 0;
     margin-top: 15px;
-    padding: 10px;
+    padding: $spacing-medium; /* ENHANCED: Better padding */
     list-style-type: none;
     border: 1px solid $border-color;
     border-radius: $border-radius;
-    background: #fff;
+    background: $background-color;
     z-index: -1;
-    box-shadow: 0 0 10px rgba(#000, 0.25);
+    box-shadow: 0 4px 20px rgba(32, 33, 35, 0.1); /* ENHANCED: Clean shadow */
     cursor: default;
   
     @include breakpoint($large) {
       display: block;
       position: relative;
-      margin: 0;
+      margin: $spacing-large 0 0 0; /* ENHANCED: Better top margin */
       padding: 0;
       border: 0;
       background: transparent;
@@ -249,7 +272,7 @@
       width: 0;
       border-style: solid;
       border-width: 0 10px 10px;
-      border-color: #fff transparent;
+      border-color: $background-color transparent;
       z-index: 1;
   
       @include breakpoint($large) {
@@ -259,20 +282,33 @@
   
     li {
       white-space: nowrap;
+      margin-bottom: $spacing-small; /* ENHANCED: Better spacing */
+  
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   
     a {
       display: block;
-      margin-bottom: 5px;
-      padding-right: 5px;
-      padding-top: 2px;
-      padding-bottom: 2px;
-      color: inherit;
-      font-size: $type-size-5;
+      padding: $spacing-small $spacing-medium; /* ENHANCED: Better padding */
+      color: $openai-medium-gray; /* ENHANCED: Consistent color */
+      font-size: $type-size-6;
       text-decoration: none;
+      border-radius: 4px; /* ENHANCED: Rounded corners */
+      transition: $global-transition;
+      font-weight: 500; /* ENHANCED: Medium weight */
   
       &:hover {
-        text-decoration: underline;
+        color: $text-color;
+        background-color: $openai-light-gray; /* ENHANCED: Subtle background on hover */
+        text-decoration: none;
+      }
+  
+      /* ENHANCED: Icon styling */
+      i {
+        margin-right: $spacing-small;
+        width: 16px; /* ENHANCED: Consistent icon width */
       }
     }
   }

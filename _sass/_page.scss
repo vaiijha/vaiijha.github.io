@@ -5,9 +5,9 @@
    #main {
     @include container;
     @include clearfix;
-    margin-top: 2em;
-    padding-left: 1em;
-    padding-right: 1em;
+    margin-top: $spacing-large; /* ENHANCED: Better top margin */
+    padding-left: $spacing-medium; /* ENHANCED: Using spacing variables */
+    padding-right: $spacing-medium;
     animation: intro 0.3s both;
     animation-delay: 0.35s;
   
@@ -16,58 +16,88 @@
     }
   }
   
-  /* ENHANCED: Updated page layout with better spacing and consistent padding */
+  /* ENHANCED: Clean page layout with better spacing */
   .page {
     @include breakpoint($large) {
-      @include span(10 of 12); /* ENHANCED: Changed from (10 of 12 last) for better centering */
-      @include prefix(1 of 12); /* ENHANCED: Updated from (0.5 of 12) for more balanced layout */
-      @include suffix(1 of 12); /* ENHANCED: Updated from (2 of 12) for symmetrical spacing */
+      @include span(9 of 12); /* ENHANCED: Adjust for wider sidebar */
+      @include prefix(0 of 12); /* ENHANCED: No prefix for cleaner layout */
+      @include suffix(0 of 12);
+      margin-left: span(3 of 12); /* ENHANCED: Account for sidebar width */
     }
   
     .page__inner-wrap {
       @include full();
   
-      /* ENHANCED: Added consistent padding using spacing variables */
+      /* ENHANCED: Better content spacing */
       .page__content,
       .page__meta,
       .page__share {
         @include full();
-        padding: 0 $spacing-medium; /* ENHANCED: Added consistent horizontal padding */
+        padding: 0 $spacing-large; /* ENHANCED: More generous horizontal padding */
+        
+        @include breakpoint($large) {
+          padding: 0 $spacing-xl; /* ENHANCED: Even more padding on large screens */
+        }
       }
     }
   }
   
+  /* ENHANCED: Clean page title styling */
   .page__title {
     margin-top: 0;
-    line-height: 1;
+    margin-bottom: $spacing-large; /* ENHANCED: Better bottom spacing */
+    line-height: 1.1; /* ENHANCED: Tighter line height for titles */
+    font-size: $type-size-1; /* ENHANCED: Ensure large title size */
+    font-weight: 700;
+    color: $text-color;
   
     & + .page__meta {
-      margin-top: -0.5em;
+      margin-top: -$spacing-medium; /* ENHANCED: Better meta spacing */
     }
   }
   
   .page__lead {
     font-family: $global-font-family;
-    font-size: $type-size-4;
+    font-size: $type-size-3; /* ENHANCED: Larger lead text */
+    line-height: 1.4;
+    color: $openai-medium-gray; /* ENHANCED: Subtle color for lead */
+    margin-bottom: $spacing-xl; /* ENHANCED: More space after lead */
   }
   
-  /* ENHANCED: Improved page content styling with better hierarchy and spacing */
+  /* ENHANCED: Clean, well-spaced content styling */
   .page__content {
-    /* ENHANCED: Better section spacing for h2 elements */
+    /* ENHANCED: Better section spacing */
     h2 {
-      margin-top: $spacing-xl; /* ENHANCED: More space before sections using consistent variable */
-      padding-top: $spacing-medium; /* ENHANCED: Added top padding for better visual separation */
-      padding-bottom: 0.5em;
-      border-bottom: 1px solid $border-color;
+      margin-top: $spacing-xxl; /* ENHANCED: Generous space before sections */
+      margin-bottom: $spacing-large;
+      padding-bottom: $spacing-medium;
+      border-bottom: 2px solid $border-color; /* ENHANCED: Thicker border */
+      font-size: $type-size-2;
+      font-weight: 600;
+      color: $text-color;
+    }
+  
+    h3 {
+      margin-top: $spacing-xl;
+      margin-bottom: $spacing-medium;
+      font-size: $type-size-3;
+      color: $text-color;
+    }
+  
+    h4, h5, h6 {
+      margin-top: $spacing-large;
+      margin-bottom: $spacing-medium;
     }
   
     p, li, dl {
-      font-size: 1em;
+      font-size: $type-size-5;
+      line-height: 1.7; /* ENHANCED: Better line height */
+      color: $text-color;
     }
   
     /* paragraph indents */
     p {
-      margin: 0 0 $indent-var;
+      margin: 0 0 $spacing-medium; /* ENHANCED: Better paragraph spacing */
   
       /* sibling indentation*/
       @if $paragraph-indent == true {
@@ -78,58 +108,75 @@
       }
     }
   
+    /* ENHANCED: Clean link styling within content */
     a {
-      text-decoration: underline;
+      color: $link-color;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: $global-transition;
   
       &:hover {
-        text-decoration: underline;
+        color: $link-color-hover;
+        border-bottom-color: $link-color-hover;
+        text-decoration: none;
   
         img {
-          box-shadow: 0 0 10px rgba(#000, 0.25);
+          box-shadow: 0 4px 20px rgba(32, 33, 35, 0.15); /* ENHANCED: Clean shadow */
         }
       }
     }
   
     dt {
-      margin-top: 1em;
-      font-family: $sans-serif;
-      font-weight: bold;
+      margin-top: $spacing-medium; /* ENHANCED: Better spacing */
+      font-family: $global-font-family; /* ENHANCED: Consistent font */
+      font-weight: 600; /* ENHANCED: Semi-bold instead of bold */
+      color: $text-color;
     }
   
     dd {
-      margin-left: 1em;
-      font-family: $sans-serif;
+      margin-left: $spacing-medium; /* ENHANCED: Better indentation */
+      margin-bottom: $spacing-small;
+      font-family: $global-font-family;
       font-size: $type-size-6;
+      color: $openai-medium-gray; /* ENHANCED: Subtle color */
     }
   
     .small {
       font-size: $type-size-6;
+      color: $openai-medium-gray;
     }
   
-    /* ENHANCED: Better list styling with improved spacing and readability */
+    /* ENHANCED: Better list styling with improved spacing */
     ul, ol {
-      margin-bottom: $spacing-medium; /* ENHANCED: Consistent bottom spacing using variable */
+      margin-bottom: $spacing-large; /* ENHANCED: More space after lists */
+      padding-left: $spacing-large; /* ENHANCED: Better indentation */
       
       li {
-        margin-bottom: 0.5rem; /* ENHANCED: Better spacing between list items */
-        line-height: 1.6; /* ENHANCED: Improved readability with better line height */
+        margin-bottom: $spacing-small; /* ENHANCED: Space between items */
+        line-height: 1.6;
         
         &:last-child {
-          margin-bottom: 0; /* ENHANCED: Remove margin from last list item */
+          margin-bottom: 0;
+        }
+  
+        /* ENHANCED: Nested list styling */
+        ul, ol {
+          margin-top: $spacing-small;
+          margin-bottom: $spacing-small;
         }
       }
     }
   
-    /* ENHANCED: Enhanced blockquote styling with better visual appeal */
+    /* ENHANCED: Modern blockquote styling */
     blockquote {
-      margin: $spacing-large 0; /* ENHANCED: Consistent vertical spacing using variables */
-      padding: $spacing-medium; /* ENHANCED: More generous padding using spacing variable */
-      background: lighten($primary-color, 45%); /* ENHANCED: Subtle background color */
-      border-left: 4px solid $primary-color; /* ENHANCED: Thicker border using primary color */
-      border-radius: 4px; /* ENHANCED: Subtle rounded corners */
-      font-style: italic;
+      margin: $spacing-xl 0;
+      padding: $spacing-large $spacing-xl;
+      background: $openai-light-gray;
+      border-left: 4px solid $primary-color;
+      border-radius: $border-radius;
+      font-style: normal; /* ENHANCED: Remove italic */
+      font-size: $type-size-4; /* ENHANCED: Larger text */
       
-      /* ENHANCED: Remove margin from last paragraph in blockquotes */
       p:last-child {
         margin-bottom: 0;
       }
@@ -137,22 +184,60 @@
   
     /* blockquote citations */
     blockquote + .small {
-      margin-top: -1.5em;
-      padding-left: 1.25rem;
+      margin-top: -$spacing-medium; /* ENHANCED: Better citation spacing */
+      padding-left: $spacing-xl;
+      color: $openai-medium-gray;
+    }
+  
+    /* ENHANCED: Code block styling */
+    pre {
+      background: $openai-light-gray;
+      border: 1px solid $border-color;
+      border-radius: $border-radius;
+      padding: $spacing-medium;
+      margin: $spacing-large 0;
+      overflow-x: auto;
+    }
+  
+    /* ENHANCED: Table styling */
+    table {
+      width: 100%;
+      margin: $spacing-large 0;
+      border-collapse: collapse;
+      border: 1px solid $border-color;
+      border-radius: $border-radius;
+      overflow: hidden;
+  
+      th, td {
+        padding: $spacing-medium;
+        text-align: left;
+        border-bottom: 1px solid $border-color;
+      }
+  
+      th {
+        background: $openai-light-gray;
+        font-weight: 600;
+        color: $text-color;
+      }
+  
+      tr:hover {
+        background: rgba(247, 247, 248, 0.5);
+      }
     }
   }
   
+  /* Rest of the existing page styles remain the same... */
   .page__hero {
     position: relative;
-    margin-bottom: 2em;
+    margin-bottom: $spacing-xl; /* ENHANCED: Better spacing */
     @include clearfix;
     animation: intro 0.3s both;
     animation-delay: 0.25s;
   
     &--overlay {
       position: relative;
-      margin-bottom: 2em;
-      padding: 3em 0;
+      margin-bottom: $spacing-xl;
+      padding: $spacing-xxl 0; /* ENHANCED: More generous padding */
       @include clearfix;
       background-size: cover;
       background-repeat: no-repeat;
@@ -165,8 +250,8 @@
       }
   
       .wrapper {
-        padding-left: 1em;
-        padding-right: 1em;
+        padding-left: $spacing-medium;
+        padding-right: $spacing-medium;
   
         @include breakpoint($x-large) {
           max-width: $x-large;
@@ -199,6 +284,7 @@
     width: 100%;
     height: auto;
     -ms-interpolation-mode: bicubic;
+    border-radius: $border-radius; /* ENHANCED: Rounded corners */
   }
   
   .page__hero-caption {
@@ -206,18 +292,17 @@
     bottom: 0;
     right: 0;
     margin: 0 auto;
-    padding: 2px 5px;
+    padding: $spacing-small $spacing-medium; /* ENHANCED: Better padding */
     color: #fff;
     font-family: $caption-font-family;
     font-size: $type-size-7;
-    background: #000;
+    background: rgba(32, 33, 35, 0.8); /* ENHANCED: Using OpenAI dark with transparency */
     text-align: right;
     z-index: 5;
-    opacity: 0.5;
     border-radius: $border-radius 0 $border-radius 0;
   
     @include breakpoint($large) {
-      padding: 5px 10px;
+      padding: $spacing-medium $spacing-large;
     }
   
     a {
@@ -231,8 +316,8 @@
      ========================================================================== */
   
   .page__share {
-    margin-top: 2em;
-    padding-top: 1em;
+    margin-top: $spacing-xl; /* ENHANCED: Better spacing */
+    padding-top: $spacing-large;
     border-top: 1px solid $border-color;
   
     @include breakpoint(max-width $small) {
@@ -250,9 +335,12 @@
   }
   
   .page__share-title {
-    margin-bottom: 10px;
+    margin-bottom: $spacing-medium; /* ENHANCED: Better spacing */
     font-size: $type-size-6;
+    font-weight: 600;
+    color: $text-color;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
   
   /*
@@ -260,9 +348,9 @@
      ========================================================================== */
   
   .page__meta {
-    margin-top: 2em;
-    color: mix(#fff, $gray, 25%);
-    font-family: $sans-serif;
+    margin-top: $spacing-xl; /* ENHANCED: Better spacing */
+    color: $openai-medium-gray; /* ENHANCED: Consistent color */
+    font-family: $global-font-family;
     font-size: $type-size-6;
   
     p {
@@ -271,13 +359,20 @@
   
     a {
       color: inherit;
+      
+      &:hover {
+        color: $text-color;
+      }
     }
   }
   
   .page__meta-title {
-    margin-bottom: 10px;
+    margin-bottom: $spacing-medium;
     font-size: $type-size-6;
+    font-weight: 600;
+    color: $text-color;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
   
   /*
@@ -290,45 +385,55 @@
     }
   
     strong {
-      margin-right: 10px;
+      margin-right: $spacing-medium;
+      color: $text-color;
     }
   }
   
   .page__taxonomy-item {
     display: inline-block;
-    margin-right: 5px;
-    margin-bottom: 8px;
-    padding: 5px 10px;
+    margin-right: $spacing-small;
+    margin-bottom: $spacing-small;
+    padding: $spacing-small $spacing-medium;
     text-decoration: none;
-    border: 1px solid $light-gray;
+    border: 1px solid $border-color;
     border-radius: $border-radius;
+    background: $openai-light-gray; /* ENHANCED: Subtle background */
+    color: $openai-medium-gray;
+    font-size: $type-size-7;
+    font-weight: 500;
+    transition: $global-transition;
   
     &:hover {
       text-decoration: none;
-      color: $link-color-hover;
+      color: $text-color;
+      border-color: $primary-color;
+      background: rgba(16, 163, 127, 0.1); /* ENHANCED: Subtle primary color background */
     }
   }
   
-  /*
-     Comments
-     ========================================================================== */
-  
+  /* All other existing styles remain the same... */
   .page__comments {
     @include full();
   }
   
   .page__comments-title {
-    margin-top: 2rem;
-    margin-bottom: 10px;
-    padding-top: 2rem;
+    margin-top: $spacing-xl;
+    margin-bottom: $spacing-medium;
+    padding-top: $spacing-xl;
     font-size: $type-size-6;
+    font-weight: 600;
     border-top: 1px solid $border-color;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $text-color;
   }
   
   .page__comments-form {
-    padding: 1em;
-    background: $lighter-gray;
+    padding: $spacing-large;
+    background: $openai-light-gray; /* ENHANCED: Clean background */
+    border-radius: $border-radius;
+    border: 1px solid $border-color;
     transition: $global-transition;
   
     &.disabled {
@@ -347,7 +452,8 @@
   
   .comment {
     @include clearfix();
-    margin: 1em 0;
+    margin: $spacing-large 0;
+    padding: $spacing-medium 0;
   
     &:not(:last-child) {
       border-bottom: 1px solid $border-color;
@@ -389,9 +495,12 @@
   
   .comment__author {
     margin: 0;
+    font-weight: 600;
+    color: $text-color;
   
     a {
       text-decoration: none;
+      color: inherit;
     }
   }
   
@@ -409,8 +518,8 @@
      ========================================================================== */
   
   .page__related {
-    margin-top: 2em;
-    padding-top: 1em;
+    margin-top: $spacing-xl;
+    padding-top: $spacing-large;
     border-top: 1px solid $border-color;
     @include clearfix();
     float: left;
@@ -422,12 +531,19 @@
     a {
       color: inherit;
       text-decoration: none;
+      
+      &:hover {
+        color: $primary-color;
+      }
     }
   }
   
   .page__related-title {
-    margin-bottom: 10px;
+    margin-bottom: $spacing-medium;
     font-size: $type-size-6;
+    font-weight: 600;
+    color: $text-color;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
   

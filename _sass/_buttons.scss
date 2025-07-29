@@ -6,38 +6,43 @@
    Default button
    ========================================================================== */
 
-/* ENHANCED: Updated default button with modern styling and better micro-interactions */
+/* ENHANCED: Clean, modern button styling inspired by OpenAI */
 .btn {
   /* default button */
   display: inline-block;
-  margin: 0.25em 0.25em 0.25em 0; /* ENHANCED: Updated margin pattern for better spacing */
-  padding: 0.75em 1.5em; /* ENHANCED: More generous padding from 0.5em 1em for better touch targets */
+  margin: $spacing-small $spacing-small $spacing-small 0; /* ENHANCED: Better margin using spacing variables */
+  padding: $spacing-medium $spacing-large; /* ENHANCED: More generous padding */
   color: #fff !important;
-  font-family: $header-font-family; /* ENHANCED: Using header font family instead of $sans-serif for consistency */
+  font-family: $global-font-family; /* ENHANCED: Consistent font family */
   font-size: $type-size-6;
-  font-weight: 600; /* ENHANCED: Slightly lighter weight from bold for better readability */
-  line-height: 1; /* ENHANCED: Added explicit line-height for consistency */
+  font-weight: 500; /* ENHANCED: Medium weight for clean look */
+  line-height: 1;
   text-align: center;
   text-decoration: none;
   background-color: $primary-color;
   border: 0 !important;
-  border-radius: 6px; /* ENHANCED: Slightly more rounded from $border-radius (4px) for modern appearance */
+  border-radius: $border-radius; /* ENHANCED: Using border radius variable */
   cursor: pointer;
-  transition: all 0.3s ease; /* ENHANCED: Smooth transitions for all properties - NEW ADDITION */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* ENHANCED: Subtle shadow for depth - NEW ADDITION */
+  transition: all 0.2s ease; /* ENHANCED: Quick, responsive transitions */
+  box-shadow: 0 2px 8px rgba(16, 163, 127, 0.2); /* ENHANCED: Shadow using primary color */
 
-  /* ENHANCED: Improved hover effects with transform and enhanced shadow */
+  /* ENHANCED: Clean hover effects */
   &:hover {
-    color: #fff !important; /* ENHANCED: Ensure white text on hover */
-    text-decoration: none; /* ENHANCED: Remove any text decoration on hover */
-    background-color: mix(white, #000, 20%);
-    transform: translateY(-1px); /* ENHANCED: Subtle lift effect on hover - NEW ADDITION */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* ENHANCED: Enhanced shadow on hover - NEW ADDITION */
+    color: #fff !important;
+    text-decoration: none;
+    background-color: $openai-accent-hover; /* ENHANCED: Using hover color */
+    transform: translateY(-1px); /* ENHANCED: Subtle lift */
+    box-shadow: 0 4px 12px rgba(16, 163, 127, 0.3); /* ENHANCED: Enhanced shadow */
   }
 
-  /* ENHANCED: Active state for better user feedback - NEW ADDITION */
   &:active {
-    transform: translateY(0); /* ENHANCED: Return to original position when clicked */
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(16, 163, 127, 0.2);
+  }
+
+  &:focus {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
   }
 
   .icon {
@@ -54,61 +59,69 @@
     width: 100%;
 
     + .btn--block {
-      margin-top: 0.25em;
+      margin-top: $spacing-small; /* ENHANCED: Using spacing variable */
     }
   }
 
-  /* for dark backgrounds */
+  /* ENHANCED: Clean inverse button for dark backgrounds */
   &--inverse {
-    color: $gray !important;
-    border: 1px solid $light-gray !important; /* override*/
-    background-color: #fff;
+    color: $text-color !important;
+    border: 2px solid $border-color !important; /* ENHANCED: Thicker border */
+    background-color: $background-color;
+    box-shadow: 0 2px 8px rgba(32, 33, 35, 0.1); /* ENHANCED: Subtle shadow */
 
     &:hover {
       color: #fff !important;
-      border-color: $gray;
+      border-color: $primary-color !important;
+      background-color: $primary-color;
     }
   }
 
   /* light outline */
   &--light-outline {
-    border: 1px solid #fff !important; /* override*/
+    color: #fff !important;
+    border: 2px solid rgba(255, 255, 255, 0.8) !important; /* ENHANCED: Better opacity */
     background-color: transparent;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
   }
 
-  /* information */
+  /* ENHANCED: Updated color variants with OpenAI palette */
   &--info {
     background-color: $info-color;
+    box-shadow: 0 2px 8px rgba(26, 115, 232, 0.2);
 
     &:hover {
-      background-color: mix(#000, $info-color, 20%);
+      background-color: $openai-blue-hover;
     }
   }
 
-  /* warning */
   &--warning {
     background-color: $warning-color;
+    box-shadow: 0 2px 8px rgba(255, 149, 0, 0.2);
 
     &:hover {
-      background-color: mix(#000, $warning-color, 20%);
+      background-color: darken($warning-color, 10%);
     }
   }
 
-  /* success */
   &--success {
     background-color: $success-color;
+    box-shadow: 0 2px 8px rgba(16, 163, 127, 0.2);
 
     &:hover {
-      background-color: mix(#000, $success-color, 20%);
+      background-color: $openai-accent-hover;
     }
   }
 
-  /* danger */
   &--danger {
     background-color: $danger-color;
+    box-shadow: 0 2px 8px rgba(255, 59, 48, 0.2);
 
     &:hover {
-      background-color: mix(#000, $danger-color, 20%);
+      background-color: darken($danger-color, 10%);
     }
   }
 
@@ -126,39 +139,55 @@
   (facebook, $facebook-color),
   (twitter, $twitter-color),
   (google-plus, $google-plus-color),
-  (linkedin, $linkedin-color);
+  (linkedin, $linkedin-color),
+  (github, $github-color); /* ENHANCED: Added GitHub */
 
   @each $socialnetwork, $color in $social {
     &--#{$socialnetwork} {
       background-color: $color;
+      box-shadow: 0 2px 8px rgba($color, 0.2); /* ENHANCED: Color-matched shadows */
 
       &:hover {
-        background-color: mix(#000, $color, 20%);
+        background-color: darken($color, 10%);
       }
     }
   }
 
-  /* extra large button */
+  /* ENHANCED: Better size variants */
   &--x-large {
     font-size: $type-size-4;
+    padding: $spacing-large $spacing-xl; /* ENHANCED: Proportional padding */
   }
 
-  /* large button */
   &--large {
     font-size: $type-size-5;
+    padding: $spacing-medium $spacing-large;
   }
 
-  /* small button */
   &--small {
     font-size: $type-size-7;
+    padding: $spacing-small $spacing-medium; /* ENHANCED: Proportional padding */
   }
 }
 
-/* ENHANCED: Primary button variant with enhanced hover effects - NEW ADDITION */
+/* ENHANCED: Primary button variant - clean and prominent */
 .btn--primary {
-  background-color: $primary-color; /* ENHANCED: Explicit primary color background */
+  background-color: $primary-color;
+  box-shadow: 0 2px 8px rgba(16, 163, 127, 0.2);
   
   &:hover {
-    background-color: darken($primary-color, 10%); /* ENHANCED: Darker shade on hover instead of mix function */
+    background-color: $openai-accent-hover;
+    box-shadow: 0 4px 12px rgba(16, 163, 127, 0.3);
+  }
+}
+
+/* ENHANCED: Secondary button variant */
+.btn--secondary {
+  background-color: $secondary-color;
+  box-shadow: 0 2px 8px rgba(26, 115, 232, 0.2);
+  
+  &:hover {
+    background-color: $openai-blue-hover;
+    box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
   }
 }

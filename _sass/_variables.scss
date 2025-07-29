@@ -28,58 +28,70 @@
    $calisto                    : "Calisto MT", serif;
    $garamond                   : Garamond, serif;
    
-   // ENHANCED: Updated typography system with modern fonts
-   $global-font-family         : 'Inter', -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif; // Modern sans-serif with fallbacks
-   $header-font-family         : 'Playfair Display', Georgia, Times, serif; // Elegant serif for headings with fallbacks
+   // ENHANCED: Updated typography system with clean, readable fonts inspired by OpenAI
+   $global-font-family         : 'Inter', -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif; // Clean sans-serif
+   $header-font-family         : 'Inter', -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif; // CHANGED: Same font for consistency
    $caption-font-family        : $global-font-family; // Consistent with body text
    
    // ENHANCED: Improved type scale with better hierarchy
-   $type-size-1                : 2.5em;   // ~40px - Main heading (enhanced from 2.441em)
-   $type-size-2                : 2em;     // ~32px - Section headings (enhanced from 1.953em)
-   $type-size-3                : 1.5em;   // ~24px - Subsection headings (slightly smaller than original 1.563em)
-   $type-size-4                : 1.25em;  // ~20px - Large text (same as original)
-   $type-size-5                : 1em;     // ~16px - Body text (same as original)
-   $type-size-6                : 0.875em; // ~14px - Small text (enhanced from 0.75em for better readability)
-   $type-size-7                : 0.6875em; // ~11px
-   $type-size-8                : 0.625em;  // ~10px
+   $type-size-1                : 3rem;    // ~48px - Main heading (ENLARGED for better impact)
+   $type-size-2                : 2.25rem; // ~36px - Section headings (ENLARGED)
+   $type-size-3                : 1.75rem; // ~28px - Subsection headings (ENLARGED)
+   $type-size-4                : 1.25rem; // ~20px - Large text
+   $type-size-5                : 1rem;    // ~16px - Body text
+   $type-size-6                : 0.875rem; // ~14px - Small text
+   $type-size-7                : 0.75rem;  // ~12px
+   $type-size-8                : 0.625rem; // ~10px
    
    /* masthead properties */
-   $masthead-height            : 70px;
+   $masthead-height            : 80px; // ENHANCED: Taller for better presence
    
    /* Sidebar properties */
    $sidebar-screen-min-width   : 1024px;
-   $sidebar-link-max-width     : 250px;
+   $sidebar-link-max-width     : 280px; // ENHANCED: Wider for better content
    
-   // NEW: Added consistent spacing scale for better layout consistency
+   // ENHANCED: OpenAI-inspired spacing scale for clean, consistent layouts
+   $spacing-xs                 : 0.5rem;  // 8px
    $spacing-small              : 1rem;    // 16px
    $spacing-medium             : 2rem;    // 32px
    $spacing-large              : 3rem;    // 48px
    $spacing-xl                 : 4rem;    // 64px
+   $spacing-xxl                : 6rem;    // 96px
    
    /*
-      Colors
+      Colors - OpenAI Inspired Palette
       ========================================================================== */
    
-   $gray                       : #7a8288;
+   // ENHANCED: OpenAI-inspired color palette - clean, professional, accessible
+   $openai-dark                : #202123; // Dark charcoal for text
+   $openai-light-gray          : #F7F7F8; // Very light gray for backgrounds
+   $openai-medium-gray         : #8E8EA0; // Medium gray for secondary text
+   $openai-border-gray         : #E5E5E5; // Light gray for borders
+   $openai-accent              : #10A37F; // OpenAI green for accents
+   $openai-accent-hover        : #0D8A6B; // Darker green for hover states
+   $openai-blue                : #1A73E8; // Clean blue for links
+   $openai-blue-hover          : #1557B0; // Darker blue for hover
+   
+   $gray                       : $openai-medium-gray;
    $dark-gray                  : mix(#000, $gray, 40%);
    $darker-gray                : mix(#000, $gray, 60%);
-   $light-gray                 : #F5F5F5; // Enhanced for better section backgrounds
+   $light-gray                 : $openai-light-gray;
    $lighter-gray               : mix(#fff, $gray, 90%);
    
-   $body-color                 : #fff;
-   $background-color           : #FFFFFF; // Clean white background
-   $code-background-color      : #fafafa;
+   $body-color                 : #FFFFFF; // Pure white
+   $background-color           : #FFFFFF; // Pure white background
+   $code-background-color      : $openai-light-gray;
    $code-background-color-dark : $light-gray;
-   $text-color                 : #333333; // Enhanced dark gray for better readability
-   $border-color               : $lighter-gray;
+   $text-color                 : $openai-dark; // ENHANCED: OpenAI dark for excellent readability
+   $border-color               : $openai-border-gray; // ENHANCED: Subtle border color
    
-   // ENHANCED: Updated primary color scheme for better visual hierarchy
-   $primary-color              : #1E90FF; // Deep blue for headings/buttons (enhanced from original)
-   $secondary-color            : #FF6F61; // Coral accent for highlights (new addition)
-   $success-color              : #62c462;
-   $warning-color              : #f89406;
-   $danger-color               : #ee5f5b;
-   $info-color                 : #52adc8;
+   // ENHANCED: Updated primary color scheme using OpenAI colors
+   $primary-color              : $openai-accent; // ENHANCED: OpenAI green as primary
+   $secondary-color            : $openai-blue; // ENHANCED: Clean blue as secondary
+   $success-color              : #10A37F; // OpenAI green
+   $warning-color              : #FF9500; // Warm orange
+   $danger-color               : #FF3B30; // Clean red
+   $info-color                 : $openai-blue; // Clean blue for info
    
    /* brands */
    $behance-color              : #1769FF;
@@ -108,30 +120,23 @@
    $xing-color                 : #006567;
    
    /* links */
-   $link-color                 : $info-color;
-   $link-color-hover           : mix(#000, $link-color, 25%);
-   $link-color-visited         : mix(#fff, $link-color, 25%);
-   $masthead-link-color        : $primary-color;
-   $masthead-link-color-hover  : mix(#000, $primary-color, 25%);
+   $link-color                 : $openai-blue; // ENHANCED: OpenAI blue for links
+   $link-color-hover           : $openai-blue-hover; // ENHANCED: Darker blue for hover
+   $link-color-visited         : mix($openai-blue, $openai-medium-gray, 70%);
+   $masthead-link-color        : $openai-dark; // ENHANCED: Dark text in header
+   $masthead-link-color-hover  : $primary-color; // ENHANCED: Green accent on hover
    
    /*
       Breakpoints
       ========================================================================== */
    
    @include breakpoint-set("to ems", true);
-   /*
-   $small                      : 400px;
-   $medium                     : 500px;
-   $medium-wide                : 550px;
-   $large                      : 1200px;
-   $x-large                    : 1800px;
-   */
    
    $small                      : 600px !default;
    $medium                     : 768px !default;
    $medium-wide                : 900px !default;
-   $large                      : 925px !default;
-   $x-large                    : 1280px !default;
+   $large                      : 1024px !default; // ENHANCED: Larger breakpoint
+   $x-large                    : 1400px !default; // ENHANCED: Larger max width
    
    /*
       Grid
@@ -150,22 +155,15 @@
      gutter-position: after,
      container: $large,
      global-box-sizing: border-box,
-     // debug: (
-     //   image: show,
-     //   color: blue,
-     //   output: overlay,
-     //   toggle: top right,
-     // ),
    );
    
    /*
       Other
       ========================================================================== */
    
-   $border-radius              : 4px;
-   $box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.125);
+   $border-radius              : 8px; // ENHANCED: Slightly more rounded for modern look
+   $box-shadow                 : 0 1px 3px rgba(0, 0, 0, 0.1); // ENHANCED: Subtle shadow
    $navicon-width              : 28px;
    $navicon-height             : 4px;
-   // ENHANCED: Smoother transitions for better micro-interactions
-   $global-transition          : all 0.3s ease-in-out; // Enhanced from 0.2s for smoother animations
+   $global-transition          : all 0.2s ease; // ENHANCED: Quicker, more responsive transitions
    

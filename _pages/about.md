@@ -1,16 +1,17 @@
 ---
 permalink: /
-title: "👋🏼 Hi, I'm Vaibhav"
+title: "Hi, I'm Vaibhav"
+excerpt: "About me"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
 
-🎓 I'm an Electrical & Electronics engineer from RVCE, Bengaluru. 
+I am a **Research Associate** at the **Indian Institute of Science (IISc)** in the Computational and Data Science Department, where I contribute to the **DREAM lab**. My current research focuses on building distributed high-performance computing (HPC) applications for **quantum computing and artificial intelligence**.
 
-🏣 Currently I'm employed at Epsilon with 2 years of experience as Machine Learning (ML) engineer. My work spans building/optimizing data engineering jobs (PySpark, AWS, Azure) to training Deep Learning (DL) models to provide hyper personalised recommendation to consumers.
+Previously, I was a **Data Engineer at Epsilon**, where I built and managed end-to-end ML and data ETL pipelines for major brands in the healthcare, auto, and telecom sectors. My work involved handling millions of customer records using technologies like **AWS Glue, PySpark, and Airflow**.
 
-🔬 My research interests are at the intersection AI and Robotics. I also love to work on AI/Tech for good social projects. I'm currently researching Reinforcement Learning (RL) algorithms and their implementations. 
+I graduated from R. V. College of Engineering with a B.E. in Electrical and Electronics. My passion lies in applying technology to solve real-world challenges, a drive that led me to design a patented **solar panel cleaning robot** and found **Covid-Seva.org**, a nationwide COVID resource repository that assisted over 50,000 people during the pandemic.
 
-📩 You can find more about my work at [Projects](https://vaiijha.github.io/projects/ "Projects Page") and [Resume](/files/Vaibhav_Jha_Resume.pdf "Resume"). Feel free to shoot me a [mail](mailto:vaijha22@gmail.com).
+Outside of my professional life, I am an enthusiast of weightlifting, playing the guitar, robotics, and hiking.

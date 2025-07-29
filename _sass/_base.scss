@@ -75,6 +75,7 @@
   ul, ol {
     margin-left: $space-md;
     padding: 0;
+    margin-bottom: $space-sm;
   }
   
   ul li, ol li {
@@ -92,7 +93,7 @@
   }
   
   pre, code {
-    font-family: 'JetBrains Mono', 'Fira Mono', monospace;
+    font-family: $monospace;
     background: $gray-700;
     padding: 0.8em 1.2em;
     border-radius: $border-radius;

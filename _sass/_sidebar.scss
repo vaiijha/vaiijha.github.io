@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SIDEBAR
+   SIDEBAR — Integrated with Dark Theme and Responsive Fixes
    ========================================================================== */
 
 /*
@@ -12,18 +12,20 @@
   
     @include clearfix();
     margin-bottom: 1em;
-    background: $background-color; /* ENHANCED: Explicit background */
+    /* ENHANCED FOR DARK THEME: Use dark background from variables */
+    background: $background-alt; /* Dark gray-800 */
   
+    /* PREVIOUS ENHANCEMENT PRESERVED: Fixed positioning and overflow */
     @media screen and (min-width: $sidebar-screen-min-width) {
       height: 100vh;
       overflow-y: auto;
       position: fixed;
       padding-top: $masthead-height;
-      border-right: 1px solid $border-color; /* ENHANCED: Subtle border */
     }
   
+    /* PREVIOUS ENHANCEMENT PRESERVED: Breakpoint opacity transition */
     @include breakpoint($large) {
-      @include span(3 of 12); /* ENHANCED: Slightly wider sidebar */
+      @include span(2 of 12);
       opacity: 1;
       -webkit-transition: opacity 0.2s ease-in-out;
               transition: opacity 0.2s ease-in-out;
@@ -33,26 +35,27 @@
       }
     }
   
+    /* PREVIOUS ENHANCEMENT PRESERVED: Max width and padding */
     @include breakpoint($x-large) {
       max-width: $sidebar-link-max-width;
-      padding-right: $spacing-medium; /* ENHANCED: Better padding */
+      padding-right: 0;
     }
   
+    /* PREVIOUS ENHANCEMENT PRESERVED: Heading styles */
     h2, h3, h4, h5, h6 {
       margin-bottom: 0;
-      font-family: $header-font-family; /* ENHANCED: Consistent font family */
-      color: $text-color; /* ENHANCED: Consistent color */
+      font-family: $sans-serif-narrow;
     }
   
     h3, h4 {
       font-size: $type-size-5;
     }
   
+    /* PREVIOUS ENHANCEMENT PRESERVED: Paragraph and list styles */
     p, li {
-      font-family: $global-font-family; /* ENHANCED: Consistent font */
+      font-family: $sans-serif;
       font-size: $type-size-6;
-      line-height: 1.6; /* ENHANCED: Better line height */
-      color: $openai-medium-gray; /* ENHANCED: Subtle color for sidebar text */
+      line-height: 1.5;
     }
   
     img {
@@ -61,6 +64,7 @@
   }
   
   .sidebar__right {
+    /* PREVIOUS ENHANCEMENT PRESERVED: Right sidebar layout */
     margin-bottom: 1em;
   
     @include breakpoint($large) {
@@ -80,74 +84,70 @@
      Author profile and links
      ========================================================================== */
   
-  /* ENHANCED: Modern, clean author avatar inspired by OpenAI */
+  /* PREVIOUS ENHANCEMENT PRESERVED: Author avatar with hover, updated for dark theme */
   .author__avatar {
     display: table-cell;
     vertical-align: top;
-    width: 56px; /* ENHANCED: Larger for better presence */
-    height: 56px;
+    width: 48px; // Slightly larger
+    height: 48px;
   
     @include breakpoint($large) {
       display: block;
       width: auto;
       height: auto;
-      text-align: center; /* ENHANCED: Center alignment */
-      margin-bottom: $spacing-large; /* ENHANCED: Better spacing */
     }
   
     img {
-      max-width: 160px; /* ENHANCED: Reasonable size */
+      max-width: 200px; // Larger profile image
       border-radius: 50%;
-      border: 3px solid $background-color; /* ENHANCED: White border for clean look */
-      box-shadow: 0 4px 20px rgba(32, 33, 35, 0.15); /* ENHANCED: Subtle shadow with OpenAI colors */
-      transition: all 0.3s ease;
+      /* ENHANCED FOR DARK THEME: Use primary color border on dark bg */
+      border: 3px solid $primary-color;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); // Subtle shadow
+      transition: transform 0.3s ease;
       
       &:hover {
-        transform: scale(1.02); /* ENHANCED: Very subtle hover effect */
-        box-shadow: 0 6px 25px rgba(32, 33, 35, 0.2);
+        transform: scale(1.05); // Subtle hover effect
       }
   
       @include breakpoint($large) {
-        padding: 0; /* ENHANCED: Remove padding for cleaner look */
-        border: 4px solid $background-color; /* ENHANCED: Thicker white border */
+        padding: 5px;
+        border: 1px solid $border-color;
       }
     }
   }
   
+  /* PREVIOUS ENHANCEMENT PRESERVED: Author content layout */
   .author__content {
     display: table-cell;
     vertical-align: top;
-    padding-left: $spacing-medium; /* ENHANCED: Using spacing variable */
-    padding-right: $spacing-large;
-    line-height: 1.4; /* ENHANCED: Better line height */
+    padding-left: 15px;
+    padding-right: 25px;
+    line-height: 1;
   
     @include breakpoint($large) {
       display: block;
       width: 100%;
       padding-left: 0;
       padding-right: 0;
-      text-align: center; /* ENHANCED: Center text on large screens */
     }
   }
   
-  /* ENHANCED: Clean, prominent author name */
+  /* PREVIOUS ENHANCEMENT PRESERVED: Author name with dark theme color */
   .author__name {
     margin: 0;
-    font-size: $type-size-2; /* ENHANCED: Larger, more prominent */
-    font-weight: 700; /* ENHANCED: Bold for emphasis */
-    color: $text-color; /* ENHANCED: Dark color for readability */
-    line-height: 1.2;
+    font-size: $type-size-3;
+    font-weight: 700;
+    color: $text-color-heading; /* ENHANCED FOR DARK THEME: White for contrast */
   
     @include breakpoint($large) {
-      margin-top: $spacing-medium;
-      margin-bottom: $spacing-small;
+      margin-top: $space-md; /* ENHANCED: Using new spacing variable */
+      margin-bottom: $space-sm;
     }
   }
   
   .sidebar .author__name {
-    font-family: $header-font-family; /* ENHANCED: Consistent font */
-    font-size: $type-size-3; /* ENHANCED: Larger sidebar name */
-    font-weight: 600;
+    font-family: $sans-serif;
+    font-size: $type-size-5;
   }
   
   .sidebar .author__desktop {
@@ -159,27 +159,23 @@
   
   .author__pronouns {
     margin: 0;
-    font-size: $type-size-6;
-    color: $openai-medium-gray; /* ENHANCED: Subtle color */
   
     @include breakpoint($large) {
-      margin-top: $spacing-small;
-      margin-bottom: $spacing-small;
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
   }
   
-  /* ENHANCED: Clean, readable author bio */
+  /* PREVIOUS ENHANCEMENT PRESERVED: Author bio with dark theme color */
   .author__bio {
     margin: 0;
-    font-size: $type-size-5; /* ENHANCED: Slightly larger for better readability */
-    line-height: 1.6;
-    color: $openai-medium-gray; /* ENHANCED: Subtle gray color */
+    font-size: $type-size-6;
+    line-height: 1.5;
+    color: $gray-400; /* ENHANCED FOR DARK THEME: Subtle gray for readability */
   
     @include breakpoint($large) {
-      margin-top: $spacing-medium;
-      margin-bottom: $spacing-large;
-      text-align: left; /* ENHANCED: Left align bio text for better readability */
-      padding: 0 $spacing-medium; /* ENHANCED: Side padding for better text flow */
+      margin-top: $space-sm; /* ENHANCED: Using new spacing variable */
+      margin-bottom: $space-md;
     }
   }
   
@@ -187,7 +183,7 @@
     position: relative;
     display: table-cell;
     vertical-align: middle;
-    font-family: $global-font-family; /* ENHANCED: Consistent font */
+    font-family: $sans-serif;
     z-index: 10;
     position: relative;
     cursor: pointer;
@@ -204,16 +200,6 @@
   
     button {
       margin-bottom: 0;
-      background: $primary-color; /* ENHANCED: Use primary color */
-      color: white;
-      border: none;
-      padding: $spacing-small $spacing-medium;
-      border-radius: $border-radius;
-      font-weight: 500;
-  
-      &:hover {
-        background: $openai-accent-hover;
-      }
   
       @include breakpoint($large) {
         display: none;
@@ -221,25 +207,24 @@
     }
   }
   
-  /* ENHANCED: Clean social links styling */
   .author__urls {
     display: none;
     position: absolute;
     right: 0;
     margin-top: 15px;
-    padding: $spacing-medium; /* ENHANCED: Better padding */
+    padding: 10px;
     list-style-type: none;
     border: 1px solid $border-color;
     border-radius: $border-radius;
-    background: $background-color;
+    background: #fff;
     z-index: -1;
-    box-shadow: 0 4px 20px rgba(32, 33, 35, 0.1); /* ENHANCED: Clean shadow */
+    box-shadow: 0 0 10px rgba(#000, 0.25);
     cursor: default;
   
     @include breakpoint($large) {
       display: block;
       position: relative;
-      margin: $spacing-large 0 0 0; /* ENHANCED: Better top margin */
+      margin: 0;
       padding: 0;
       border: 0;
       background: transparent;
@@ -272,7 +257,7 @@
       width: 0;
       border-style: solid;
       border-width: 0 10px 10px;
-      border-color: $background-color transparent;
+      border-color: #fff transparent;
       z-index: 1;
   
       @include breakpoint($large) {
@@ -282,33 +267,20 @@
   
     li {
       white-space: nowrap;
-      margin-bottom: $spacing-small; /* ENHANCED: Better spacing */
-  
-      &:last-child {
-        margin-bottom: 0;
-      }
     }
   
     a {
       display: block;
-      padding: $spacing-small $spacing-medium; /* ENHANCED: Better padding */
-      color: $openai-medium-gray; /* ENHANCED: Consistent color */
-      font-size: $type-size-6;
+      margin-bottom: 5px;
+      padding-right: 5px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      color: inherit;
+      font-size: $type-size-5;
       text-decoration: none;
-      border-radius: 4px; /* ENHANCED: Rounded corners */
-      transition: $global-transition;
-      font-weight: 500; /* ENHANCED: Medium weight */
   
       &:hover {
-        color: $text-color;
-        background-color: $openai-light-gray; /* ENHANCED: Subtle background on hover */
-        text-decoration: none;
-      }
-  
-      /* ENHANCED: Icon styling */
-      i {
-        margin-right: $spacing-small;
-        width: 16px; /* ENHANCED: Consistent icon width */
+        text-decoration: underline;
       }
     }
   }

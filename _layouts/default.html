@@ -5,19 +5,32 @@ layout: compress
 {% include base_path %}
 
 <!doctype html>
-<html lang="{{ site.locale | slice: 0,2 }}" class="no-js">
+<html lang="{{ site.locale | slice: 0,2 | default: "en" }}" class="no-js">
   <head>
     {% include head.html %}
     {% include head/custom.html %}
   </head>
 
-  <body>
+  <body class="layout--{{ page.layout | default: layout.layout }}">
 
     {% include browser-upgrade.html %}
+    
+    <!-- ENHANCED: Masthead partial included -->
     {% include masthead.html %}
 
-    {{ content }}
+    <!-- ENHANCED: Sidebar wrapper for responsive layout -->
+    <aside class="sidebar">
+      {% include sidebar.html %}
+    </aside>
 
+    <!-- ENHANCED: Main content wrapper with id="main" -->
+    <main id="main">
+      <div class="page__inner-wrap">
+        {{ content }}
+      </div>
+    </main>
+
+    <!-- ENHANCED: Re-integrated the original footer structure -->
     <div class="page__footer">
       <footer>
         {% include footer/custom.html %}

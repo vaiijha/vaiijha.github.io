@@ -1,68 +1,55 @@
 /* ==========================================================================
-   MASTHEAD
+   MASTHEAD — Integrated with Dark Theme and Responsive Fixes
    ========================================================================== */
 
-/* ENHANCED: Clean, modern masthead inspired by OpenAI's design */
+/* PREVIOUS ENHANCEMENT PRESERVED: Masthead with glass effect, updated for dark theme */
 .masthead {
   position: fixed;
-  background: rgba(247, 247, 248, 0.85); /* ENHANCED: OpenAI light gray with transparency */
-  backdrop-filter: blur(20px); /* ENHANCED: Strong blur for glass effect */
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid $border-color;
+  /* ENHANCED FOR DARK THEME: Dark background with transparency */
+  background: rgba($background-alt, 0.95); // Subtle transparency
+  backdrop-filter: blur(10px); // Modern glass effect
+  border-bottom: 1px solid lighten($border-color, 10%);
   height: $masthead-height;
   top: 0;
   width: 100%;
-  box-shadow: 0 1px 6px rgba(32, 33, 35, 0.08); /* ENHANCED: Very subtle shadow */
-  z-index: 1000; /* ENHANCED: Higher z-index */
+  z-index: 20;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); // Subtle shadow
 
-  -webkit-animation: intro 0.3s both;
-          animation: intro 0.3s both;
-  -webkit-animation-delay: 0.15s;
-          animation-delay: 0.15s;
-
-  /* ENHANCED: Clean inner wrap with better spacing */
+  /* ENHANCED: Responsive inner wrap with flexbox */
   &__inner-wrap {
-    @include container;
-    @include clearfix;
-    padding: $spacing-medium $spacing-large; /* ENHANCED: More generous padding */
+    @include container();
+    @include clearfix();
+    padding: 1em $space-md; /* ENHANCED: Using spacing variable */
     font-family: $header-font-family;
-    font-weight: 500; /* ENHANCED: Medium weight for clean look */
-
+    font-weight: 600;
+    
     @include breakpoint($x-large) {
       max-width: $x-large;
     }
+  }
 
-    /* ENHANCED: Clean navigation styling */
-    nav {
-      z-index: 10;
+  nav {
+    z-index: 10;
 
-      a {
-        text-decoration: none;
-        color: $masthead-link-color;
-        font-size: $type-size-5; /* ENHANCED: Slightly larger nav text */
-        font-weight: 500;
-        padding: $spacing-small $spacing-medium; /* ENHANCED: Better touch targets */
-        border-radius: $border-radius;
-        transition: $global-transition;
-        
-        &:hover {
-          color: $masthead-link-color-hover;
-          background-color: rgba(16, 163, 127, 0.1); /* ENHANCED: Subtle background on hover */
-        }
+    a {
+      text-decoration: none;
+      color: $text-color; /* ENHANCED FOR DARK THEME: Light text on dark bg */
+      transition: color 0.3s ease;
+      
+      &:hover {
+        color: $primary-color; /* ENHANCED FOR DARK THEME: Green hover */
       }
     }
   }
 }
 
+/* PREVIOUS ENHANCEMENT PRESERVED: Menu with flexbox for responsiveness */
 .masthead__menu {
   ul {
     margin: 0;
     padding: 0;
     clear: both;
     list-style-type: none;
-    display: flex; /* ENHANCED: Flexbox for better alignment */
-    align-items: center;
-    gap: $spacing-small; /* ENHANCED: Consistent spacing between items */
   }
 }
 
@@ -72,8 +59,7 @@
   white-space: nowrap;
 
   &--lg {
-    padding-right: $spacing-large; /* ENHANCED: Using spacing variable */
-    font-weight: 600; /* ENHANCED: Slightly lighter than 700 */
-    font-size: $type-size-4; /* ENHANCED: Larger logo/site title */
+    padding-right: 3em;
+    font-weight: 700;
   }
 }

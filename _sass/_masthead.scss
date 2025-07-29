@@ -2,13 +2,17 @@
    MASTHEAD
    ========================================================================== */
 
+/* ENHANCED: Updated masthead with modern glass effect and improved styling */
 .masthead {
   position: fixed;
-  background: white;
-  border-bottom: 1px solid $border-color;
+  background: rgba(255, 255, 255, 0.95); /* ENHANCED: Subtle transparency for glass effect (was solid white) */
+  backdrop-filter: blur(10px); /* ENHANCED: Modern glass blur effect - NEW ADDITION */
+  -webkit-backdrop-filter: blur(10px); /* ENHANCED: Safari support for backdrop-filter */
+  border-bottom: 1px solid lighten($border-color, 10%); /* ENHANCED: Lighter border for subtlety */
   height: $masthead-height;
   top: 0;
   width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* ENHANCED: Subtle shadow for depth - NEW ADDITION */
 
   -webkit-animation: intro 0.3s both;
           animation: intro 0.3s both;
@@ -16,28 +20,37 @@
           animation-delay: 0.15s;
   z-index: 20;
 
+  /* ENHANCED: Improved inner wrap styling with better typography and spacing */
   &__inner-wrap {
     @include container;
     @include clearfix;
-    padding: 1em 1em 1em;
-    font-family: $sans-serif-narrow;
+    padding: 1em $spacing-medium; /* ENHANCED: Using consistent spacing variable instead of hard-coded padding */
+    font-family: $header-font-family; /* ENHANCED: Using header font family for consistency with headings */
+    font-weight: 600; /* ENHANCED: Better font weight for navigation items */
 
     @include breakpoint($x-large) {
       max-width: $x-large;
     }
 
+    /* ENHANCED: Improved navigation styling with better hover effects */
     nav {
       z-index: 10;
-    }
 
-    a {
-      text-decoration: none;
+      /* ENHANCED: Better link styling with smooth transitions and color changes */
+      a {
+        text-decoration: none;
+        color: $text-color; /* ENHANCED: Using consistent text color variable */
+        transition: color 0.3s ease; /* ENHANCED: Smooth color transition on hover */
+        
+        &:hover {
+          color: $primary-color; /* ENHANCED: Hover color using primary color for consistency */
+        }
+      }
     }
   }
 }
 
 .masthead__menu {
-
   ul {
     margin: 0;
     padding: 0;

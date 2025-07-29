@@ -1,14 +1,30 @@
+// assets/css/main.scss
 
 @charset "utf-8";
 
-/* Import a modern, clean font (SF Pro, Inter, or system font stack) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+// 1. Import your variables and partials first
+@import "variables";
+@import "vendor/breakpoint/breakpoint";
+@import "reset";
+@import "base";
+@import "animations";
+@import "masthead";
+@import "sidebar";
+@import "footer";
+@import "page";
+@import "archive";
+@import "buttons";
+@import "notices";
+@import "tables";
+@import "forms";
+@import "utilities";
+@import "syntax";
 
-/* 1. VARIABLES: Apple/OpenAI inspired palette */
+// 2. Add your custom theme overrides below
 $background: #fafbfc;
 $text: #222;
 $muted-text: #666;
-$primary: #10a37f; // OpenAI green
+$primary: #10a37f;
 $border: #e5e7eb;
 $radius: 12px;
 $shadow: 0 2px 8px 0 rgba(0,0,0,0.04);

@@ -1,470 +1,128 @@
 /* ==========================================================================
-   BASE ELEMENTS — OpenAI/Apple Dark Theme, Responsive
+   BASE ELEMENTS — Cleaned for Dark Theme
    ========================================================================== */
 
-/* ENHANCED: Global dark background and text */
-html {
-  background: $background-color; /* ENHANCED: Dark gray-900 base */
-  color: $text-color;
-  font-size: $doc-font-size;
-  font-family: $global-font-family;
-  scroll-behavior: smooth; /* ENHANCED: Smooth scrolling */
-  min-height: 100vh; /* ENHANCED: Full height for mobile */
-  /* Legacy: sticky footer fix */
-  position: relative;
-  min-height: 100%;
-}
-
-/* ENHANCED: Body with dark background, responsive padding */
-body {
-  margin: 0;
-  padding: $masthead-height 0 5rem 0; /* ENHANCED: Fixed header spacing, bottom padding for mobile */
-  min-height: 100vh;
-  background: $background-color; /* ENHANCED: Dark theme */
-  color: $text-color;
-  line-height: 1.7; /* ENHANCED: Better readability */
-  font-weight: 400; /* ENHANCED: Normal weight */
-
-  @media (max-width: $breakpoint-mobile) {
-    padding-top: $masthead-height; /* ENHANCED: Mobile header fix */
-    padding-bottom: 3rem;
+   html {
+    background: $background-color;
+    color: $text-color;
+    font-size: $doc-font-size;
+    font-family: $global-font-family;
+    scroll-behavior: smooth;
+    position: relative;
+    min-height: 100%;
   }
-
-  /* Legacy: overflow hidden class */
-  &.overflow--hidden {
-    /* when primary navigation is visible, the content in the background won't scroll */
-    overflow: hidden;
-  }
-}
-
-/* ENHANCED: Headings with white color, generous spacing */
-h1, h2, h3, h4, h5, h6 {
-  font-family: $header-font-family;
-  color: $text-color-heading; /* ENHANCED: White for contrast in dark theme */
-  letter-spacing: -0.01em;
-  margin-top: $space-lg;
-  margin-bottom: $space-xs;
-  font-weight: 700; /* ENHANCED: Bold for hierarchy */
-  line-height: 1.2; /* Legacy preserved */
-}
-h1 { font-size: $type-size-1; margin-top: $space-xl; margin-top: 0; /* Legacy: no top margin for h1 */ } /* ENHANCED: Larger top space */
-h2 { font-size: $type-size-2; margin-top: $space-lg; font-size: $type-size-4; /* Legacy preserved */ }
-h3 { font-size: $type-size-3; font-size: $type-size-5; /* Legacy preserved */ }
-h4 { font-size: $type-size-4; font-size: $type-size-6; /* Legacy preserved */ }
-h5 { font-size: $type-size-4; font-size: $type-size-6; /* Legacy preserved */ }
-h6 { font-size: $type-size-6; color: $gray-400; font-size: $type-size-6; /* Legacy preserved */ }
-
-/* Legacy: small text */
-small, .small {
-  font-size: $type-size-6;
-}
-
-/* ENHANCED: Paragraphs with responsive margins */
-p {
-  font-size: $type-size-5;
-  margin: 0 0 $space-sm 0;
-  color: $text-color;
-  margin-bottom: 1.3em; /* Legacy preserved */
-
-  @media (max-width: $breakpoint-mobile) {
-    margin-bottom: $space-xs; /* ENHANCED: Tighter on mobile */
-  }
-}
-
-/* Legacy: u, ins, del */
-u,
-ins {
-  text-decoration: none;
-  border-bottom: 1px solid $text-color;
-  a {
-    color: inherit;
-  }
-}
-
-del a {
-  color: inherit;
-}
-
-/* Legacy: reduce orphans and widows when printing */
-p, pre, blockquote, ul, ol, dl, figure, table, fieldset {
-  orphans: 3;
-  widows: 3;
-}
-
-/* Legacy: abbreviations */
-abbr[title],
-abbr[data-original-title] {
-  text-decoration: none;
-  cursor: help;
-  border-bottom: 1px dotted $text-color;
-}
-
-/* ENHANCED: Links with accent color, no underline until hover */
-a {
-  color: $link-color;
-  text-decoration: none;
-  transition: $transition;
-  border-bottom: 1.5px solid transparent; /* ENHANCED: Subtle border on hover only */
-  &:hover { color: $link-color-hover; border-bottom: 1.5px solid $primary-color; } /* ENHANCED: Green border on hover */
-  &:focus { outline: $focus-outline; } /* ENHANCED: Green focus outline */
-  /* Legacy: hover/active */
-  &:hover,
-  &:active {
-    outline: 0;
-  }
-}
-
-/* ENHANCED: HR with dark border, more space */
-hr {
-  border: 0;
-  border-top: 1px solid $border-color;
-  margin: $space-lg 0; /* ENHANCED: Generous vertical space */
-  display: block;
-  margin: 1em 0; /* Legacy preserved */
-}
-
-/* ENHANCED: Lists with responsive indentation */
-ul li,
-ol li {
-  margin-bottom: 0.5em; /* Legacy preserved */
-  line-height: 1.6; /* ENHANCED: Better line height */
   
-  &:last-child {
-    margin-bottom: 0; /* ENHANCED: Remove margin from last item */
-  }
-}
-
-li ul,
-li ol {
-  margin-top: 0.5em; /* Legacy preserved */
-}
-
-/* ENHANCED: Blockquote with dark card style */
-blockquote {
-  background: $background-card; /* ENHANCED: Dark gray-700 */
-  color: $text-color;
-  border-left: 4px solid $primary-color;
-  border-radius: $border-radius;
-  margin: $space-lg 0;
-  padding: $space-sm $space-md;
-  font-size: $type-size-4; /* ENHANCED: Larger for emphasis */
-  margin: 2em 1em 2em 0; /* Legacy preserved */
-  padding-left: 1em;
-  padding-right: 1em;
-  font-style: italic; /* Legacy preserved */
-
-  cite {
-    font-style: italic; /* Legacy preserved */
-
-    &:before {
-      content: "\2014";
-      padding-right: 5px;
-    }
-  }
-}
-
-/* ENHANCED: Code with dark background, rounded */
-pre {
-  overflow-x: auto; /* Legacy: add scrollbars to wide code blocks*/
-  /* ENHANCED: Dark theme and styling */
-  font-family: 'JetBrains Mono', 'Fira Mono', monospace;
-  color: $accent-green;
-  background: $gray-700;
-  padding: 0.6em 1em;
-  border-radius: $border-radius;
-  font-size: $type-size-6;
-  scrollbar-width: thin; /* ENHANCED: Thin scrollbar */
-  scrollbar-color: $primary-color $gray-700;
-}
-
-p > code,
-a > code,
-li > code,
-figcaption > code,
-td > code {
-  padding-top: 0.1rem; /* Legacy preserved */
-  padding-bottom: 0.1rem;
-  font-size: $type-size-6;
-  background: $code-background-color;
-  border: 1px solid $lighter-gray;
-  border-radius: $border-radius;
-  box-shadow: $box-shadow;
-
-  &:before, &:after {
-    letter-spacing: -0.2em;
-    content: "\00a0"; /* Legacy: non-breaking space*/
-  }
-}
-
-/* Legacy: tt, code, kbd, samp, pre font family */
-tt, code, kbd, samp, pre {
-  font-family: $monospace;
-}
-
-/* Legacy: Media and embeds */
-figure {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-          align-items: flex-start;
-  flex-wrap: wrap;
-  margin: 2em 0;
-
-  img,
-  iframe,
-  .fluid-width-video-wrapper {
-    margin-bottom: 1em;
-  }
-
-  img {
-    width: 100%;
-    border-radius: $border-radius; /* ENHANCED: Rounded images */
-    -webkit-transition: $global-transition;
-    transition: $global-transition;
-  }
-
-  > a {
-    display: block;
-  }
-
-  &.half {
-    > a,
-    > img {
-      @include breakpoint($small) {
-        width: calc(50% - 0.5em);
-      }
-    }
-
-    figcaption {
-      width: 100%;
-    }
-  }
-
-  &.third {
-    > a,
-    > img {
-      @include breakpoint($small) {
-        width: calc(33.3333% - 0.5em);
-      }
-    }
-
-    figcaption {
-      width: 100%;
-    }
-  }
-}
-
-/* Legacy: Figure captions */
-figcaption {
-  margin-bottom: 0.5em;
-  color: mix(#fff, $text-color, 25%);
-  font-family: $caption-font-family;
-  font-size: $type-size-6;
-
-  a {
-    color: inherit;
-    text-decoration: none;
-    border-bottom: 1px solid $light-gray;
-    -webkit-transition: $global-transition;
-    transition: $global-transition;
-
-    &:hover {
-      color: #000;
-      border-bottom-color: #000;
-    }
-  }
-}
-
-/* Legacy: Fix IE9 SVG bug */
-svg:not(:root) {
-  overflow: hidden;
-}
-
-/* Legacy: Navigation lists */
-nav {
-  ul {
+  body {
     margin: 0;
+    padding: $masthead-height 0 5rem 0;
+    background: $background-color;
+    color: $text-color;
+    line-height: 1.7;
+  
+    &.overflow--hidden {
+      overflow: hidden;
+    }
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $header-font-family;
+    color: $text-color-heading;
+    letter-spacing: -0.01em;
+    margin-top: $space-lg;
+    margin-bottom: $space-xs;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  
+  h1 { font-size: $type-size-1; margin-top: 0; }
+  h2 { font-size: $type-size-2; }
+  h3 { font-size: $type-size-3; }
+  h4 { font-size: $type-size-4; }
+  h5 { font-size: $type-size-5; }
+  h6 { font-size: $type-size-6; color: $gray-400; }
+  
+  p {
+    font-size: $type-size-5;
+    margin-bottom: $space-sm;
+    color: $text-color;
+  }
+  
+  a {
+    color: $link-color;
+    text-decoration: none;
+    transition: $transition;
+    border-bottom: 1.5px solid transparent;
+  
+    &:hover {
+      color: $link-color-hover;
+      border-bottom-color: $primary-color;
+    }
+    &:focus {
+      outline: $focus-outline;
+      outline-offset: 2px;
+    }
+    &:active {
+      outline: 0;
+    }
+  }
+  
+  hr {
+    border: 0;
+    border-top: 1px solid $border-color;
+    margin: $space-lg 0;
+  }
+  
+  ul, ol {
+    margin-left: $space-md;
     padding: 0;
   }
-
-  li {
-    list-style: none;
+  
+  ul li, ol li {
+    margin-bottom: $space-xs;
   }
-
-  a {
-    text-decoration: none;
+  
+  blockquote {
+    background: $background-card;
+    color: $text-color;
+    border-left: 4px solid $primary-color;
+    border-radius: $border-radius;
+    margin: $space-lg 0;
+    padding: $space-sm $space-md;
+    font-size: $type-size-4;
   }
-
-  /* override white-space for nested lists */
-  ul li,
-  ol li {
-    margin-bottom: 0;
+  
+  pre, code {
+    font-family: 'JetBrains Mono', 'Fira Mono', monospace;
+    background: $gray-700;
+    padding: 0.8em 1.2em;
+    border-radius: $border-radius;
+    font-size: $type-size-6;
+    overflow-x: auto;
   }
-
-  li ul,
-  li ol {
-    margin-top: 0;
+  
+  p > code, a > code, li > code {
+    padding: 0.2em 0.4em;
+    font-size: 0.9em;
+    border-radius: 4px;
   }
-}
-
-/* Legacy: Global animation transition */
-b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a, tr, td, form button, input[type="submit"], .btn, .highlight, .archive__item-teaser {
-  -webkit-transition: $global-transition;
-  transition: $global-transition;
-}
-
-/* ENHANCED: RESPONSIVE HEADER FIX – centered, flexbox for mobile */
-header.masthead {
-  background: $background-alt; /* ENHANCED: Dark gray-800 */
-  border-bottom: 1px solid $gray-600;
-  box-shadow: 0 3px 16px rgba(16,23,31,0.13);
-  height: $masthead-height;
-  width: 100vw;
-  position: fixed;
-  top: 0; left: 0;
-  z-index: 100;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 $space-lg; /* ENHANCED: Generous horizontal spacing */
-
-  @media (max-width: $breakpoint-tablet) {
-    padding: 0 $space-sm; /* ENHANCED: Smaller padding on tablet/mobile */
-    height: 60px; /* ENHANCED: Shorter on mobile */
-  }
-
-  /* ENHANCED: Flexbox navigation for responsive layout */
-  nav {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-
-    ul {
-      display: flex;
-      flex-wrap: wrap; /* ENHANCED: Wrap on small screens */
-      gap: $space-xs; /* ENHANCED: Space between links */
-      list-style: none;
-      margin: 0; padding: 0;
-    }
-    li { margin: 0; }
-    a {
-      display: block;
-      padding: $space-xs $space-sm; /* ENHANCED: Better touch targets on mobile */
-      color: $text-color;
+  
+  figure {
+    margin: $space-lg 0;
+    img {
+      width: 100%;
       border-radius: $border-radius;
-      font-weight: 500;
-      font-size: $type-size-5;
-      &:hover, &:focus { background: $gray-700; color: $primary-color; } /* ENHANCED: Dark hover state */
     }
   }
-}
-
-/* ENHANCED: Responsive main content – centered, card-like on dark bg */
-main#main {
-  max-width: 850px;
-  margin: $space-xl auto 0; /* ENHANCED: Generous top margin below header */
-  background: $background-card; /* ENHANCED: Dark gray-700 card */
-  border-radius: $border-radius;
-  box-shadow: $box-shadow;
-  padding: $space-lg; /* ENHANCED: Internal padding */
-
-  @media (max-width: $breakpoint-tablet) {
-    box-shadow: none; /* ENHANCED: No shadow on tablet */
-    padding: $space-md $space-sm;
-    margin-top: $masthead-height + $space-xs; /* ENHANCED: Adjust for header */
+  
+  figcaption {
+    color: $gray-400;
+    font-size: $type-size-6;
+    text-align: center;
+    margin-top: $space-xs;
   }
-  @media (max-width: $breakpoint-mobile) {
-    padding: $space-sm $space-xs; /* ENHANCED: Tight on mobile */
-    margin-top: 60px; /* ENHANCED: Mobile header height */
+  
+  b, strong {
+    font-weight: 700;
+    color: $text-color-heading;
   }
-}
-
-/* ENHANCED: Sidebar – stacks below on mobile, dark bg */
-aside.sidebar {
-  background: $background-alt; /* ENHANCED: Dark gray-800 */
-  color: $gray-200;
-  border-right: 1px solid $gray-600;
-  min-width: 240px;
-  max-width: 320px;
-  height: 100vh;
-  position: fixed;
-  left: 0; top: $masthead-height;
-  padding: $space-lg $space-md; /* ENHANCED: Generous padding */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: $space-lg; /* ENHANCED: Space between sidebar elements */
-
-  @media (max-width: $breakpoint-tablet) {
-    position: relative; /* ENHANCED: Stack below header on tablet/mobile */
-    width: 100%;
-    height: auto;
-    border-right: none;
-    border-bottom: 1px solid $gray-600;
-    padding: $space-md $space-sm;
-    align-items: stretch;
-    gap: $space-md; /* ENHANCED: Adjust gap for mobile */
-  }
-
-  /* ENHANCED: Author profile in sidebar */
-  .author__avatar img {
-    border-radius: 50%;
-    border: 2.5px solid $primary-color;
-    box-shadow: 0 4px 20px rgba(16,163,127,0.10);
-    max-width: 110px; /* ENHANCED: Responsive size */
-  }
-  .author__name { font-size: $type-size-2; color: $white; } /* ENHANCED: White heading */
-  .author__bio  { font-size: $type-size-6; color: $gray-400; } /* ENHANCED: Subtle gray */
-}
-
-/* ENHANCED: Mobile stacking fix – ensure no overlap */
-@media (max-width: $breakpoint-mobile) {
-  main#main, aside.sidebar {
-    max-width: 100vw;
-    border-radius: 0;
-    box-shadow: none;
-    margin: 0; /* ENHANCED: Full width on mobile */
-    padding: $space-sm $space-xs !important; /* ENHANCED: Tight padding */
-  }
-  header.masthead { padding: 0 $space-xs; } /* ENHANCED: Mobile header spacing */
-  nav ul { gap: $space-xs; flex-direction: column; } /* ENHANCED: Stack nav links on small mobile */
-}
-
-/* ENHANCED: Buttons – dark theme, responsive */
-.btn, button {
-  background: $primary-color; /* ENHANCED: Green accent */
-  color: $white;
-  border: none;
-  border-radius: $border-radius;
-  padding: $space-xs $space-lg;
-  font-size: $type-size-6;
-  font-weight: 600;
-  box-shadow: 0 2px 8px rgba(16,163,127,0.28);
-  transition: $transition;
-  cursor: pointer;
-  &:hover, &:focus {
-    background: $accent-blue; /* ENHANCED: Blue on hover */
-    color: $white;
-    outline: none;
-    box-shadow: 0 3px 14px rgba(41,151,255,0.19);
-  }
-  @media (max-width: $breakpoint-mobile) {
-    padding: $space-xxs $space-md; /* ENHANCED: Smaller on mobile */
-  }
-}
-
-/* ENHANCED: Focus outlines for accessibility (Apple-like) */
-a:focus, button:focus, input:focus {
-  outline: $focus-outline; /* ENHANCED: Green outline */
-}
-
-/* ENHANCED: Extra - thin scrollbars for code (Apple style) */
-pre, code {
-  scrollbar-width: thin; /* ENHANCED: Thin scrollbar */
-  scrollbar-color: $primary-color $gray-700;
-}
+  

@@ -15,22 +15,22 @@ layout: compress
 
     {% include browser-upgrade.html %}
     
-    <!-- ENHANCED: Masthead partial included -->
+    <!-- Masthead partial included for the header -->
     {% include masthead.html %}
 
-    <!-- ENHANCED: Sidebar wrapper for responsive layout -->
+    <!-- Sidebar wrapper for responsive layout -->
     <aside class="sidebar">
       {% include sidebar.html %}
     </aside>
 
-    <!-- ENHANCED: Main content wrapper with id="main" -->
+    <!-- Main content wrapper -->
     <main id="main">
       <div class="page__inner-wrap">
         {{ content }}
       </div>
     </main>
 
-    <!-- ENHANCED: Re-integrated the original footer structure -->
+    <!-- Original footer structure -->
     <div class="page__footer">
       <footer>
         {% include footer/custom.html %}

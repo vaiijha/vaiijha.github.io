@@ -2,51 +2,25 @@
    Variables: OpenAI/Apple-Inspired Dark Theme
    ========================================================================== */
 
-/* ENHANCED: Added full dark theme colors from previous response */
-$gray-900       : #16171b; // main background
-$gray-800       : #202123; // header/sidebar
-$gray-700       : #23272f; // card backgrounds
-$gray-600       : #40414f; // line, subtle borders
-$gray-400       : #8E8EA0; // secondary text
-$gray-200       : #C2C2DB; // captions, icons
-$white          : #fff;
-$accent-green   : #10A37F; // OpenAI green
-$accent-blue    : #2997ff; // Apple blue
-$accent-blue-dk : #2587d2;
-$danger         : #ff5a5f;
-
-/* ENHANCED: Assigned palette for text, backgrounds, links */
-$text-color             : $gray-200;         // main text
-$text-color-heading     : $white;            // headings
-$background-color       : $gray-900;         // body background
-$background-alt         : $gray-800;         // headers, sidebar
-$background-card        : $gray-700;         // content cards, boxes
-$border-color           : $gray-600;         // subtle borders
-$link-color             : $accent-blue;      // links/buttons
-$link-color-hover       : $accent-blue-dk;
-$primary-color          : $accent-green;
-$secondary-color        : $accent-blue;
-$success-color          : $accent-green;
-
-/* ENHANCED: Typography from previous, using Inter font */
+/* Typography */
 $doc-font-size        : 16;
 $global-font-family   : 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 $header-font-family   : $global-font-family;
 $caption-font-family  : $global-font-family;
 
-/* ENHANCED: Type scale with more contrast */
-$type-size-1 : 2.75rem; // Main title
-$type-size-2 : 2rem;    // Section title
-$type-size-3 : 1.25rem; // Subsection
+/* Type scale */
+$type-size-1 : 2.75rem;
+$type-size-2 : 2rem;
+$type-size-3 : 1.25rem;
 $type-size-4 : 1.125rem;
 $type-size-5 : 1rem;
 $type-size-6 : 0.875rem;
 $type-size-7 : 0.75rem;
 
-/* ENHANCED: Masthead height adjusted for better spacing */
+/* Sizing */
 $masthead-height      : 72px;
 
-/* ENHANCED: Generous spacing variables for responsive design */
+/* Spacing */
 $space-xxs : 0.5rem;
 $space-xs  : 1rem;
 $space-sm  : 1.5rem;
@@ -54,63 +28,42 @@ $space-md  : 2rem;
 $space-lg  : 3rem;
 $space-xl  : 4rem;
 
-/* ENHANCED: Responsive breakpoints for mobile/tablet/desktop */
-$breakpoint-mobile: 600px;
-$breakpoint-tablet: 900px;
-$breakpoint-desktop: 1200px;
+/* ---- DARK THEME COLORS (OpenAI/Apple Inspired) ---- */
+$gray-900       : #16171b; // main background
+$gray-800       : #202123; // header/sidebar
+$gray-700       : #23272f; // card backgrounds
+$gray-600       : #40414f; // subtle borders
+$gray-400       : #8E8EA0; // secondary text
+$gray-200       : #C2C2DB; // captions
+$white          : #fff;
+$accent-green   : #10A37F;
+$accent-blue    : #2997ff;
+$accent-blue-dk : #2587d2;
+$danger         : #ff5a5f;
 
-/* ENHANCED: Other styles - rounded corners, subtle shadows */
+/* Assign Palette */
+$text-color             : $gray-200;
+$text-color-heading     : $white;
+$background-color       : $gray-900;
+$background-alt         : $gray-800;
+$background-card        : $gray-700;
+$border-color           : $gray-600;
+$link-color             : $accent-blue;
+$link-color-hover       : $accent-blue-dk;
+$primary-color          : $accent-green;
+$secondary-color        : $accent-blue;
+$success-color          : $accent-green;
+$info-color             : $accent-blue;
+$warning-color          : #FF9500;
+$danger-color           : #FF3B30;
+
+/* UI Elements */
 $border-radius          : 10px;
-$box-shadow             : 0 2px 12px rgba(16, 23, 31, 0.15);
+$box-shadow             : 0 4px 16px rgba(0, 0, 0, 0.2);
 $focus-outline          : 2px solid $accent-green;
 $transition             : all 0.18s cubic-bezier(0.57, 0.13, 0.55, 1);
 
-/* Legacy variables preserved for compatibility (from original file) */
-$paragraph-indent           : false;
-$indent-var                 : 1.3em;
-$serif                      : Georgia, Times, serif;
-$sans-serif                 : -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
-$monospace                  : Monaco, Consolas, "Lucida Console", monospace;
-$sans-serif-narrow          : $sans-serif;
-$helvetica                  : Helvetica, "Helvetica Neue", Arial, sans-serif;
-$georgia                    : Georgia, serif;
-$times                      : Times, serif;
-$bodoni                     : "Bodoni MT", serif;
-$calisto                    : "Calisto MT", serif;
-$garamond                   : Garamond, serif;
-$sidebar-screen-min-width   : 1024px;
-$sidebar-link-max-width     : 250px;
-$code-background-color      : #fafafa;
-$code-background-color-dark : $light-gray;
-$warning-color              : #f89406;
-$danger-color               : #ee5f5b;
-$info-color                 : #52adc8;
-/* ... (all other brand colors preserved as in original) */
-$behance-color              : #1769FF;
-/* (omitted for brevity, add all from original if needed) */
-
-@include breakpoint-set("to ems", true);
-$small                      : 600px !default;
-$medium                     : 768px !default;
-$medium-wide                : 900px !default;
-$large                      : 925px !default;
-$x-large                    : 1280px !default;
-
-$susy: (
-  columns: 12,
-  column-width: 120px,
-  gutters: 1/4,
-  math: fluid,
-  output: float,
-  gutter-position: after,
-  container: $large,
-  global-box-sizing: border-box,
-);
-
-$right-sidebar-width-narrow : 0px;
-$right-sidebar-width        : 0px;
-$right-sidebar-width-wide   : 0px;
-
-$navicon-width              : 28px;
-$navicon-height             : 4px;
-$global-transition          : all 0.2s ease-in-out;
+/* Breakpoints */
+$breakpoint-mobile  : 600px;
+$breakpoint-tablet  : 900px;
+$breakpoint-desktop : 1200px;

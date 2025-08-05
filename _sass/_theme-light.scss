@@ -1,0 +1,26 @@
+/* Light Theme Variables - Apple Inspired */
+:root {
+    /* Colors */
+    --color-background: #ffffff;
+    --color-text: #1d1d1f;
+    --color-text-secondary: #86868b;
+    --color-accent: #0071e3;
+    --color-accent-light: #147ce5;
+    --color-border: #d2d2d7;
+    --color-card-background: #f5f5f7;
+    
+    /* Typography */
+    --font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+    --font-size-base: 17px;
+    --line-height-base: 1.47059;
+    
+    /* Spacing */
+    --spacing-unit: 8px;
+    --content-width: 980px;
+    
+    /* Effects */
+    --shadow-small: 0 2px 4px rgba(0,0,0,0.08);
+    --shadow-medium: 0 4px 12px rgba(0,0,0,0.08);
+    --transition-standard: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --border-radius: 12px;
+  }

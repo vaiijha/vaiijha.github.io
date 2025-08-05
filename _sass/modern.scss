@@ -1,0 +1,95 @@
+@import "theme-light";
+
+.modern-theme {
+  /* Global Styles */
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background: var(--color-background);
+  
+  /* Header */
+  .site-header {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.8);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--color-border);
+    
+    .nav-container {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: calc(var(--spacing-unit) * 2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    text-align: center;
+    padding: calc(var(--spacing-unit) * 12) var(--spacing-unit);
+    
+    h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: var(--spacing-unit);
+    }
+    
+    .subtitle {
+      font-size: 24px;
+      color: var(--color-text-secondary);
+      margin-bottom: calc(var(--spacing-unit) * 4);
+    }
+  }
+  
+  /* Project Cards */
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: calc(var(--spacing-unit) * 3);
+    padding: calc(var(--spacing-unit) * 4) 0;
+    
+    .project-card {
+      background: var(--color-card-background);
+      border-radius: var(--border-radius);
+      padding: calc(var(--spacing-unit) * 3);
+      transition: var(--transition-standard);
+      
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-medium);
+      }
+    }
+  }
+  
+  /* Buttons */
+  .button {
+    display: inline-block;
+    padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
+    border-radius: 20px;
+    text-decoration: none;
+    transition: var(--transition-standard);
+    
+    &.primary {
+      background: var(--color-accent);
+      color: white;
+      
+      &:hover {
+        background: var(--color-accent-light);
+      }
+    }
+    
+    &.secondary {
+      border: 1px solid var(--color-accent);
+      color: var(--color-accent);
+      margin-left: var(--spacing-unit);
+      
+      &:hover {
+        background: rgba(0, 113, 227, 0.1);
+      }
+    }
+  }
+}

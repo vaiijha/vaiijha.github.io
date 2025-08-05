@@ -1,0 +1,26 @@
+---
+layout: modern
+---
+
+<div class="hero-section">
+  <h1>{{ site.author.name }}</h1>
+  <p class="subtitle">{{ site.author.bio }}</p>
+  <div class="cta-buttons">
+    <a href="/projects" class="button primary">View Projects</a>
+    <a href="/contact" class="button secondary">Get in Touch</a>
+  </div>
+</div>
+
+<section class="featured-projects">
+  <h2>Featured Projects</h2>
+  <div class="project-grid">
+    {% for project in site.projects limit:3 %}
+    <div class="project-card">
+      <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
+      <h3>{{ project.title }}</h3>
+      <p>{{ project.excerpt }}</p>
+      <a href="{{ project.url | relative_url }}" class="learn-more">Learn More →</a>
+    </div>
+    {% endfor %}
+  </div>
+</section>

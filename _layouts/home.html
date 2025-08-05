@@ -1,26 +1,55 @@
 ---
-layout: modern
+layout: default
 ---
 
 <div class="hero-section">
-  <h1>{{ site.author.name }}</h1>
-  <p class="subtitle">{{ site.author.bio }}</p>
-  <div class="cta-buttons">
-    <a href="/projects" class="button primary">View Projects</a>
-    <a href="/contact" class="button secondary">Get in Touch</a>
+  <div class="hero-content">
+    <div class="profile-image">
+      <img src="/images/profile_photo.jpg" alt="Vaibhav Jha">
+    </div>
+    <h1>Vaibhav Jha</h1>
+    <p class="subtitle">ML Engineer, with interests in Robotics, AI and Engineering</p>
+    
+    <div class="current-position">
+      <p>Research Associate at <span class="highlight">Indian Institute of Science (IISc)</span></p>
+      <p>DREAM lab | Computational and Data Science Department</p>
+    </div>
+
+    <div class="cta-buttons">
+      <a href="/projects" class="button primary">View Projects</a>
+      <a href="/resume" class="button secondary">Resume</a>
+    </div>
   </div>
 </div>
 
-<section class="featured-projects">
-  <h2>Featured Projects</h2>
-  <div class="project-grid">
-    {% for project in site.projects limit:3 %}
-    <div class="project-card">
-      <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
-      <h3>{{ project.title }}</h3>
-      <p>{{ project.excerpt }}</p>
-      <a href="{{ project.url | relative_url }}" class="learn-more">Learn More →</a>
+<section class="experience-section">
+  <div class="container">
+    <h2>Experience</h2>
+    <div class="experience-card">
+      <h3>Research Associate - IISc DREAM Lab</h3>
+      <p>Building distributed high-performance computing (HPC) applications for quantum computing and artificial intelligence</p>
     </div>
-    {% endfor %}
+    
+    <div class="experience-card">
+      <h3>Data Engineer - Epsilon</h3>
+      <p>Built and managed end-to-end ML and data ETL pipelines using AWS Glue, PySpark, and Airflow for major brands in healthcare, auto, and telecom sectors</p>
+    </div>
+  </div>
+</section>
+
+<section class="projects-section">
+  <div class="container">
+    <h2>Notable Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Solar Panel Cleaning Robot</h3>
+        <p>Designed and patented an automated cleaning solution for solar panels</p>
+      </div>
+      
+      <div class="project-card">
+        <h3>Covid-Seva.org</h3>
+        <p>Built a nationwide COVID resource repository that assisted over 50,000 people during the pandemic</p>
+      </div>
+    </div>
   </div>
 </section>

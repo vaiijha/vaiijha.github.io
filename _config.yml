@@ -238,7 +238,7 @@ defaults:
       path: ""
       type: pages
     values:
-      layout: single
+      layout: default
       author_profile: true
   # _teaching
   - scope:
@@ -284,6 +284,11 @@ defaults:
       layout: talk
       author_profile: true
       share: true
+  # homepage
+  - scope:
+      path: "index.md"
+    values:
+      layout: home
 
 
 # Sass/SCSS
